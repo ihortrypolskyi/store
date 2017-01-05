@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
   gem 'thor', '0.19.1'
   gem 'bootstrap-sass', '~> 3.3.6'
+  gem 'acts_as_list'
 
 
 group :development, :test do
