@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My first store">
+    <meta name="author" content="Ihor Trypolskyi">
     <title>Store</title>
     <%= csrf_meta_tags %>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,7 +15,23 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= yield %>
+    <header>
+    </header>
+    <section>
+      <%= render 'shared/navbar' %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 col-sm-9 col-xs-9">
+            <%= yield %>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <%= render 'shared/sidebar' %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <%= render partial: 'shared/footer' %>
+    </footer>
   </body>
 </html>
