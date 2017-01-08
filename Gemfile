@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
   gem 'thor', '0.19.1'
   gem 'bootstrap-sass', '~> 3.3.6'
   gem 'acts_as_list'
+  gem 'rails_admin', '~> 1.0'
 
 
 group :development, :test do
