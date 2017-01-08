@@ -1,5 +1,29 @@
-<%= book.title %>
-<%= number_to_currency(book.price, unit: 'грн.', format: '%n %u') %>
-<br>
+<div class="col-md-3 col-sm-6">
+  <span class="thumbnail">
+      			<img src="http://placehold.it/300x400" alt="...">
+            <% if book.title.length <= 40 %>
+                <h4><%= book.title %></h4>
+            <% else %>
+                <h6><%= book.title %></h6>
+            <% end %>
+      			<div class="ratings">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+            </div>
+      			<p> book categories</p>
+            <p class="price"><%= number_to_currency(book.price, unit: 'грн.', format: '%n %u') %></p>
 
-<%= button_to 'Add to cart', add_to_cart_book_path(book) %>
+      			<hr class="line">
+      			<div class="row">
+      				<div class="col-md-5 col-sm-5 text-left">
+                <p><%= link_to 'see more', book_path(book), class: 'btn btn-primary' %></p>
+      				</div>
+      				<div class="col-md-5 col-sm-5 text-right">
+      					<%= button_to 'Add to cart', add_to_cart_book_path(book), class:'btn btn-success right' %>
+      				</div>
+      			</div>
+  </span>
+</div>
