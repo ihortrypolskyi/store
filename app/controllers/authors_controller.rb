@@ -19,4 +19,10 @@ class AuthorsController < ApplicationController
 
   def index
   end
+
+  private
+
+  def author_params
+    params.require(:author).permit(:author_first_name, :author_last_name)
+  end
 end

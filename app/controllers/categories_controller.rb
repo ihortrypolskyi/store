@@ -19,4 +19,10 @@ class CategoriesController < ApplicationController
 
   def index
   end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:name, :position)
+  end
 end

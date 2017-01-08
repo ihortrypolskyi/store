@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def new
+    @book = Book.new
   end
 
   def create
@@ -24,4 +25,11 @@ class BooksController < ApplicationController
   def add_to_cart
 
   end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :description, :price, :year, :isbn)
+  end
+
 end

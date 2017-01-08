@@ -19,4 +19,10 @@ class PublishersController < ApplicationController
 
   def index
   end
+
+  private
+
+  def publisher_params
+    params.require(:publisher).permit(:publisher_name)
+  end
 end
