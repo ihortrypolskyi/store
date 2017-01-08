@@ -15,21 +15,15 @@
     <br>
     <hr>
     <div class="row">
-      <div class="col-md-6 col-sm-6">
-        <p class="price">$29,90</p>
-      </div>
-      <div class="col-md- col-sm-6">
-        <button class="btn btn-success right" > BUY ITEM</button>
+      <p class="price"><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u') %></p>
+      <div class="row">
+          <%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-success right' %>
       </div>
     </div>
   </div>
   <div class="books-show-right">
     <img src="http://placehold.it/300x400" alt="...">
-
-
   </div>
-
-
 </div>
 
 </div>
