@@ -1,0 +1,5 @@
+<%= book.title %>
+<%= number_to_currency(book.price, unit: 'грн.', format: '%n %u') %>
+<br>
+
+<%= button_to 'Add to cart', add_to_cart_book_path(book) %>

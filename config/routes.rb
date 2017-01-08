@@ -59,7 +59,11 @@ Rails.application.routes.draw do
 
   get 'about/index'
 
-  resources :books
+  resources :books do
+    member do
+      post 'add_to_cart'
+    end
+  end
   resources :categories
   resources :authors
   resources :publishers
