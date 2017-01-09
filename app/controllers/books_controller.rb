@@ -23,6 +23,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @categories = Category.all
   end
 
   def add_to_cart

@@ -13,7 +13,13 @@
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star-empty"></span>
             </div>
-      			<p> book categories</p>
+            <div><% book.authors.each do |author| %>
+          <span><%= author.first_name %>
+                  <%= author.last_name %></span>
+                <% end %></div>
+      			<p><% book.categories.each do |category| %>
+                  <%= category.name %>
+               <% end %></p>
               <p class="price"><%= number_to_currency(book.price, unit: 'грн.', format: '%n %u') %></p>
 
               <hr class="line">

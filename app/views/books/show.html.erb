@@ -3,22 +3,30 @@
 
   <div class="books-show-left">
     <h2><%=	@book.title %></h2>
-    <h3>Book info:</h3>
+    <br>
     <ul>
-      <li><strong>Author</strong></li>
-      <li><strong>Year</strong></li>
-      <li><strong>Pages</strong></li>
-      <li><strong>Language</strong></li>
-      <li><strong>Category</strong></li>
-      <li><strong>Publisher</strong></li>
+      <li><strong>Author: </strong>
+      <% @book.authors.each do |author| %>
+          <span><%= author.first_name %>
+          <%= author.last_name %></span>
+      <% end %></li>
+      <li><strong>Year: </strong><%= @book.year %></li>
+      <li><strong>Pages: </strong></li>
+      <li><strong>Language: </strong></li>
+      <li><strong>Category: </strong>
+        <% @book.categories.each do |category| %>
+            <%= category.name %>
+        <% end %></li>
+      <li><strong>Publisher: </strong>
+        <% @book.publishers.each do |publisher| %>
+            <%= publisher.publisher_name %>
+        <% end %></li>
     </ul>
     <br>
     <hr>
     <div class="row">
-      <p class="price"><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u') %></p>
-      <div class="row">
-          <%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-success right' %>
-      </div>
+      <span class="price"><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u') %><%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-success right' %>
+      </span>
     </div>
   </div>
   <div class="books-show-right">

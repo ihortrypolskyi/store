@@ -1,2 +1,6 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="categories-show">
+  <h2 class="text-center"><%= @category.name %></h2>
+  <div class="row">
+    <p><%= render @category.books %></p>
+  </div>
+</div>
