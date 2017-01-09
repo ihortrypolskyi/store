@@ -15,6 +15,13 @@ class AuthorsController < ApplicationController
   end
 
   def show
+    @authors = Author.all
+    @author = Author.find(params[:id])
+    @books = @author.books
+    @book = Book.find(params[:id])
+    @categories = Category.all
+    @category = Category.find(params[:id])
+
   end
 
   def index

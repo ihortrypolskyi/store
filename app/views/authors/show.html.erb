@@ -1,2 +1,7 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<div class="categories-show">
+  <h2 class="text-center"><%= @author.first_name %> <%= @author.last_name %></h2>
+  <div class="row">
+    <p><%= render @author.books %></p>
+  </div>
+</div>
+

@@ -3,34 +3,41 @@
     <h3>Contact info</h3>
   </div>
    <% else %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel panel-default">
+      <div>
         <h4 class="text-center">Categories <span class="badge"><%= @categories.count %></span></h4>
       </div>
       <% @categories.each do |category| %>
       <ul class="list-group">
-        <li class="list-group-item">
-            <%= link_to category.name, category_path(category), class: 'list-group-item' %>
-        </li>
+            <%= link_to category_path(category), class: 'list-group-item' do    %>
+              <%= category.name %><span class="badge"><%= category.books.count %></span>
+            <% end %>
       </ul>
       <% end %>
     </div>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <span class="badge">14</span>
-        Cras justo odio
-      </li>
-    </ul>
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Action <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
+    <div class="panel panel-default">
+      <div>
+        <h4 class="text-center">Authors   <span class="badge"><%= @authors.count %></span></h4>
+      </div>
+      <% @authors.each do |author| %>
+          <ul class="list-group">
+            <%= link_to author_path(author), class: 'list-group-item' do    %>
+                <%= author.first_name %>
+                <%= author.last_name %><span class="badge"><%= author.books.count %></span>
+            <% end %>
+          </ul>
+      <% end %>
     </div>
+    <!--<div class="btn-group">-->
+      <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+        <!--Action <span class="caret"></span>-->
+      <!--</button>-->
+      <!--<ul class="dropdown-menu">-->
+        <!--<li><a href="#">Action</a></li>-->
+        <!--<li><a href="#">Another action</a></li>-->
+        <!--<li><a href="#">Something else here</a></li>-->
+        <!--<li role="separator" class="divider"></li>-->
+        <!--<li><a href="#">Separated link</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
 <% end %>

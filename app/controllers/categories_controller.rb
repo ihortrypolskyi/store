@@ -19,6 +19,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @books = @category.books
     @book = Book.find(params[:id])
+    @authors = Author.all
   end
 
   def index
