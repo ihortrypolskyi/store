@@ -15,15 +15,15 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @categories = Category.all
+    @categories = Category.order(:name)
     @category = Category.find(params[:id])
     @books = @category.books
     @book = Book.find(params[:id])
-    @authors = Author.all
+    @authors = Author.order(:first_name)
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
 
   end
 

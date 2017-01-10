@@ -17,14 +17,14 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @categories = Category.all
-    @authors = Author.all
+    @categories = Category.order(:name)
+    @authors = Author.order(:first_name)
   end
 
   def index
-    @books = Book.all
-    @categories = Category.all
-    @authors = Author.all
+    @books = Book.order(:title)
+    @categories = Category.order(:name)
+    @authors = Author.order(:first_name)
 
   end
 
