@@ -1,7 +1,7 @@
 <div class="categories-show">
   <h2 class="text-center"><%= @author.first_name %> <%= @author.last_name %></h2>
   <div class="row">
-    <p><%= render @author.books %></p>
+    <p><%= render @author.books.order(:title) %></p>
   </div>
 </div>
 

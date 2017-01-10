@@ -1,6 +1,6 @@
 <div class="categories-show">
   <h2 class="text-center"><%= @category.name %></h2>
   <div class="row">
-    <p><%= render @category.books %></p>
+    <p><%= render @category.books.order(:title) %></p>
   </div>
 </div>
