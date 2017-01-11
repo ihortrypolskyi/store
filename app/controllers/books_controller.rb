@@ -28,6 +28,17 @@ class BooksController < ApplicationController
 
   end
 
+  def search
+    if params[:search].present?
+      @books = Book.search(params[:search])
+    else
+      @books = Book.all
+    end
+
+    @categories = Category.order(:name)
+    @authors = Author.order(:first_name)
+  end
+
   def add_to_cart
 
   end

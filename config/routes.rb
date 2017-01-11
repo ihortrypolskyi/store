@@ -63,6 +63,9 @@ Rails.application.routes.draw do
   # get 'search', to: 'search#search'
 
   resources :books do
+    collection do
+      get 'search'
+    end
     member do
       post 'add_to_cart'
     end

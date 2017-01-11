@@ -1,5 +1,6 @@
   # require 'elasticsearch/model'
 class Book < ApplicationRecord
+  searchkick
 
   # include Elasticsearch::Model
   # include Elasticsearch::Model::Callbacks
