@@ -22,8 +22,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.search((params[:q].present? ? params[:q] : '*' )).records
-    # @books = Book.order(:title)
+    @books = Book.order(:title)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
 

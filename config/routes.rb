@@ -60,6 +60,8 @@ Rails.application.routes.draw do
 
   get 'about/index'
 
+  # get 'search', to: 'search#search'
+
   resources :books do
     member do
       post 'add_to_cart'

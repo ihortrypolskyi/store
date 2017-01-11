@@ -38,8 +38,7 @@ gem 'jbuilder', '~> 2.5'
   gem 'bootstrap-sass', '~> 3.3.6'
   gem 'acts_as_list'
   gem 'rails_admin', '~> 1.0'
-  gem 'elasticsearch-model'
-  gem 'elasticsearch-rails'
+  gem 'searchkick', '2.0.2'
 
 
 group :development, :test do

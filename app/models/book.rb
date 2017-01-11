@@ -1,6 +1,8 @@
+  # require 'elasticsearch/model'
 class Book < ApplicationRecord
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
 
   has_many :book_categories
   has_many :categories, through: :book_categories
