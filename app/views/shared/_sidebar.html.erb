@@ -1,10 +1,10 @@
-<% if params[:controller] == 'about' %>
+<% if params[:controller] == 'about' || params[:controller] == 'users/new' %>
   <div class="well">
     <h3>Contact info</h3>
   </div>
    <% else %>
       <div class="panel panel-default">
-      <div>
+      <div class="list-group-item list-group-item-success" >
         <h4 class="text-center">Categories <span class="badge"><%= @categories.count %></span></h4>
       </div>
       <% @categories.each do |category| %>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
     <div class="panel panel-default">
-      <div>
+      <div class="list-group-item list-group-item-success">
         <h4 class="text-center">Authors   <span class="badge"><%= @authors.count %></span></h4>
       </div>
       <% @authors.each do |author| %>

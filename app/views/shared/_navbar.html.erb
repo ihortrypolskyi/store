@@ -33,6 +33,19 @@
         <%= submit_tag 'Search', name: nil, class: 'btn btn-success' %>
       </p>
          <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to t('Log out'), 'logout', method: 'delete' %></li>
+              <li><a><%= current_user.first_name %> <%= current_user.last_name %></a></li>
+            </ul>
+        <% else %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to t('Login'), 'login' %></li>
+              <li><%= link_to t('Signup'), 'signup' %>  </li>
+            </ul>
+        <% end %>
+      </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
