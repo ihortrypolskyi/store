@@ -30,7 +30,7 @@ class BooksController < ApplicationController
 
   def search
     if params[:search].present?
-      @books = Book.search(params[:search])
+      @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
     else
       @books = Book.all
     end

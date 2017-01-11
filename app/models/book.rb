@@ -1,6 +1,6 @@
   # require 'elasticsearch/model'
 class Book < ApplicationRecord
-  searchkick
+  searchkick word_start: [:title, :description]
 
   # include Elasticsearch::Model
   # include Elasticsearch::Model::Callbacks
@@ -22,3 +22,4 @@ class Book < ApplicationRecord
     #   all
     # end
 end
+
