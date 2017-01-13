@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reviews
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -75,6 +75,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+
+    resources :reviews, except: [:show, :index]
+
     member do
       post 'add_to_cart'
     end

@@ -8,7 +8,7 @@
         <h4 class="text-center">Categories <span class="badge"><%= @categories.count %></span></h4>
       </div>
       <% @categories.each do |category| %>
-      <ul class="list-group">
+      <ul class="list-group" >
             <%= link_to category_path(category), class: 'list-group-item' do    %>
               <%= category.name %><span class="badge"><%= category.books.count %></span>
             <% end %>
