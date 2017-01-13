@@ -2,8 +2,7 @@
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,15 +10,11 @@
       </ul>
     </div>
   <% end %>
-
-      <%= f.text_field :first_name, :placeholder => 'first_name', class:"form-control" %><br>
-      <%= f.text_field :last_name, :placeholder => 'last_name', class:"form-control" %><br>
-      <%= f.email_field :email, :placeholder => 'email', type:"email", class:"form-control" %><br>
-      <%= f.password_field :password, :placeholder => 'password', class:"form-control" %><br>
-      <%= f.submit 'create user', type: "submit", class:"btn btn-success" %>
+      <%= f.text_field :first_name, :placeholder => 'first_name', class:'form-control' %><br>
+      <%= f.text_field :last_name, :placeholder => 'last_name', class:'form-control' %><br>
+      <%= f.email_field :email, :placeholder => 'email', type:'email', class:'form-control' %><br>
+      <%= f.password_field :password, :placeholder => 'password', class:'form-control' %><br>
+      <%= f.submit 'Create', type: 'submit', class:'btn btn-success' %>
       <%= link_to 'Back', :back, class: 'btn btn-success' %>
-
-
-
 <% end %>
 </div>
