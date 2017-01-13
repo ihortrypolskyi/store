@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { in: 3..30 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   before_save { email.downcase! }
 
+  has_many :reviews, dependent: :destroy
+
   def to_s
     '#{first_name} #{last_name}'
   end

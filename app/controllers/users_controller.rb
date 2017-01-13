@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  # before_action :authenticate_with_http_digest
+  # # ???
+
   # GET /users
   def index
     @users = User.all
@@ -62,4 +65,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password )
     end
+
 end
