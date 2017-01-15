@@ -12,16 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :rating %>
-    <%= f.number_field :rating %>
+    <%= f.number_field :rating, :placeholder => 'rate from 1 to 5', class:'form-control' %>
   </div>
+    <br>
 
   <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, :placeholder => 'comment', class:'form-control'  %>
   </div>
+    <br>
 
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit 'Save', type: 'submit', class:'btn btn-success' %>
+      <%= link_to 'Back', book_path(@book), class:'btn btn-success'  %>
   </div>
 <% end %>

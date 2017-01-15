@@ -48,6 +48,10 @@ class ReviewsController < ApplicationController
     redirect_to reviews_url, notice: 'Review was successfully destroyed.'
   end
 
+  def rating=param
+    @rating = param.to_f
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
@@ -60,6 +64,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def review_params
-      params.require(:review).permit(:raiting, :comment)
+      params.require(:review).permit(:rating, :comment)
     end
 end

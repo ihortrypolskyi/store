@@ -54,9 +54,19 @@
 
           <div class="col-md-4 col-sm-4 col-xs-4">
             <div class="well">
-              <div class="text-center">
-              <%= link_to 'leave a review', new_book_review_path(@book), class: 'btn btn-success'  %>
-              </div>
+              <% if @reviews.blank? %>
+                  <h4 class="text-center">No reviews just yet <%= link_to 'Leave Review', new_book_review_path(@book),
+                                                      class: 'btn btn-success' %></h4>
+                  <% else %>
+                  <div class="text-center">
+                    <%= link_to 'leave your review', new_book_review_path(@book), class: 'btn btn-success'  %>
+                  </div>
+                    <% @reviews.each do |review| %>
+                      <hr>
+                      <%= review.rating %>
+                      <em><%= review.comment %></em>
+                    <%	end %>
+                  <%	end %>
             </div>
           </div>
     </div>

@@ -19,6 +19,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
+    @reviews = Review.where(book_id: @book.id).order('created_at DESC')
+
   end
 
   def index
