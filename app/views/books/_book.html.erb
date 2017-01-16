@@ -6,13 +6,8 @@
             <% else %>
                 <h6><%= book.title %></h6>
             <% end %>
-      			<div class="ratings">
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-            </div>
+            <div class="star-rating" data-score= <%= book.avg_review %> ></div>
+
             <div><% book.authors.each do |author| %>
               <em><%= author.first_name %>
                   <%= author.last_name %></em>
@@ -33,3 +28,4 @@
               </div>
   </span>
 </div>
+

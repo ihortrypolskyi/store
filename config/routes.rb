@@ -72,11 +72,12 @@ Rails.application.routes.draw do
   # get 'search', to: 'search#search'
 
   resources :books do
+    resources :reviews, except: [:show, :index]
     collection do
       get 'search'
     end
 
-    resources :reviews, except: [:show, :index]
+
 
     member do
       post 'add_to_cart'

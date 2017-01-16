@@ -13,6 +13,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @books = Book.order(:title).includes(:reviews)
+    @categories = Category.order(:name)
+    @authors = Author.order(:first_name)
+
   end
 
   def show
@@ -21,13 +25,28 @@ class BooksController < ApplicationController
     @authors = Author.order(:first_name)
     @reviews = Review.where(book_id: @book.id).order('created_at DESC')
 
+
+      if @reviews.blank?
+        @avg_review = 0
+      else
+        @avg_review = @reviews.average(:rating).round(2)
+      end
   end
 
   def index
-    @books = Book.order(:title)
+    @books = Book.order(:title).includes(:reviews)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
 
+    for singlebook in @books
+      @reviews = Review.where(book_id: singlebook.id)
+
+      if @reviews.blank?
+        singlebook.avg_review = 0
+      else
+        singlebook.avg_review = @reviews.average(:rating).round(2)
+      end
+    end
   end
 
   def search

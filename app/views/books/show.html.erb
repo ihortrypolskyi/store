@@ -26,13 +26,8 @@
 
             <div class="col-md-5 col-sm-5 col-xs-5">
               <strong>In stock</strong>
-                <p class="ratings">
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-                </p>
+              <%= render 'books/review' %>
+
                <h2><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u') %></h2>
             <div><%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-success right' %></div>
 
@@ -55,19 +50,43 @@
           <div class="col-md-4 col-sm-4 col-xs-4">
             <div class="well">
               <% if @reviews.blank? %>
-                  <h4 class="text-center">No reviews just yet <%= link_to 'Leave Review', new_book_review_path(@book),
+                  <h4 class="text-center"><%= link_to 'Leave your review here... ', new_book_review_path(@book),
                                                       class: 'btn btn-success' %></h4>
                   <% else %>
                   <div class="text-center">
-                    <%= link_to 'leave your review', new_book_review_path(@book), class: 'btn btn-success'  %>
+                    <%= link_to 'Leave your review', new_book_review_path(@book), class: 'btn btn-success'  %>
                   </div>
                     <% @reviews.each do |review| %>
+                      <div class="reviews">
                       <hr>
-                      <%= review.rating %>
-                      <em><%= review.comment %></em>
+                          <span > <div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
+                            <strong><em><%= review.comment %></em></strong>
+                        </span>
+
+                        <span class="pull-right">
+                          <div><%= review.user.first_name %> <%= review.user.last_name %>
+                           <!--??? if user signed in-->
+                            <!--if review.user_id == current_user.id && review.rule_20_minutes? %>-->
+                               <!--link_to t('edit'), edit_book_review_path(review.book_id, review) %> |-->
+                               <!--link_to t('delete'), book_review_path(review.book_id, review),-->
+                                            <!--method: :delete, data: { confirm: t('Are you sure?') } %>-->
+                           <!--end %>-->
+                          </div>
+                        </span>
+                      </div>
                     <%	end %>
                   <%	end %>
             </div>
           </div>
     </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+      readOnly: true,
+      score: function() {
+          return $(this).attr('data-score');
+      },
+      path: '/assets/',
+  });
+</script>

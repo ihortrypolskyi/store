@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
     @books = Book.order(:title)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
@@ -22,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id]= nil
-    redirect_to root_url
+    redirect_to '/'
     flash[:notice] = 'logged out'
   end
 end
