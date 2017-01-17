@@ -34,11 +34,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-  gem 'thor', '0.19.1'
-  gem 'bootstrap-sass', '~> 3.3.6'
-  gem 'acts_as_list'
-  gem 'rails_admin', '~> 1.0'
-  gem 'searchkick', '2.0.2'
+gem 'thor', '0.19.1'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'acts_as_list'
+gem 'rails_admin', '~> 1.0'
+gem 'searchkick', '2.0.2'
+gem 'carrierwave', '~> 1.0'
 
 
 
