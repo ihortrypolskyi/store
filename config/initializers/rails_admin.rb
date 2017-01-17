@@ -6,6 +6,13 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model Book do
+    edit do
+    end
+  end
+
+
+
 
   ### Popular gems integration
 

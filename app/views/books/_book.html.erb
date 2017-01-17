@@ -1,6 +1,10 @@
 <div class="col-md-3 col-sm-6">
   <span class="thumbnail">
       			<img src="http://placehold.it/300x400" alt="...">
+            <img class="large_image" class="img-responsive">
+            <%= link_to book do %>
+                <%= image_tag book.image.url(:index) if book.image? %>
+            <% end%>
             <% if book.title.length <= 40 %>
                 <h4><%= book.title %></h4>
             <% else %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
   get 'signup' => 'users#new'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   root 'books#index'
 
   get 'publishers/new'
@@ -86,6 +87,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :authors
   resources :publishers
+
+
 
 
 

@@ -1,4 +1,4 @@
-dashboard 
+dashboard  http://localhost:3000/admin  
 user: storeadmin
 pass: store
 
