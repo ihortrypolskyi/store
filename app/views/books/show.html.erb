@@ -6,17 +6,18 @@
          <div class="row">
            <div class="col-md-7 col-sm-7 col-xs-7">
                   <ul>
+                    <li><strong>Category: </strong>
+                      <% @book.categories.each do |category| %>
+                          <%= category.name %>
+                      <% end %></li>
                     <li><strong>Author: </strong>
                     <% @book.authors.each do |author| %>
                         <span><%= author.first_name %> <%= author.last_name %></span>
                     <% end %></li>
                     <li><strong>Year: </strong><%= @book.year %></li>
-                    <li><strong>Pages: </strong></li>
-                    <li><strong>Language: </strong></li>
-                    <li><strong>Category: </strong>
-                      <% @book.categories.each do |category| %>
-                          <%= category.name %>
-                      <% end %></li>
+                    <li><strong>Pages: </strong><%= @book.pages %></li>
+                    <li><strong>ISBN: </strong><%= @book.isbn %></li>
+                    <li><strong>Language: </strong><%= @book.language %></li>
                     <li><strong>Publisher: </strong>
                       <% @book.publishers.each do |publisher| %>
                           <%= publisher.publisher_name %>
@@ -25,17 +26,26 @@
             </div>
 
             <div class="col-md-5 col-sm-5 col-xs-5">
-              <strong>In stock</strong>
+
               <%= render 'books/review' %>
 
+              <% if @book.in_stock? %>
                <h2><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u') %></h2>
-            <div><%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-warning right' %></div>
-
+                <div><%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-warning right' %></div>
+              <% else %>
+                <h2>Sold out</h2>
+              <%	end %>
             </div>
       </div>
     </div>
         <div class="col-md-3 col-sm-3 col-xs-3">
-          <img src="http://placehold.it/150x250" alt="...">
+          <% if @book.image? %>
+              <img class="large_image" class="img-responsive">
+              <%= image_tag @book.image.url(:show) %>
+          <% else %>
+              <img src="http://placehold.it/150x250" alt="...">
+          <% end %>
+
         </div>
   </div>
   <br>

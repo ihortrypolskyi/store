@@ -14,7 +14,11 @@ class Book < ApplicationRecord
   validates :description, presence: true, length: { maximum: 4000 }
   validates :price, presence: true, length: { in: 1..4 }
   validates :year, presence: true, length: { is: 4 }
+  validates :pages, presence: true
+  validates :language, presence: true
 
+
+  mount_uploader :image, BookUploader
 
     # def self.by_category_and_author(category = nil, author = nil)
     #   return where(category: category, author: author) if category && author

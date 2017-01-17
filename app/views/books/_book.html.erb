@@ -1,10 +1,13 @@
 <div class="col-md-3 col-sm-6">
   <span class="thumbnail">
-      			<img src="http://placehold.it/300x400" alt="...">
-            <img class="large_image" class="img-responsive">
-            <%= link_to book do %>
-                <%= image_tag book.image.url(:index) if book.image? %>
-            <% end%>
+            <% if book.image? %>
+                <img class="large_image" class="img-responsive">
+                <%= link_to book do %>
+                    <%= image_tag book.image.url(:index) %>
+                <% end%>
+            <% else %>
+                <img src="http://placehold.it/180x270" alt="...">
+            <% end %>
             <% if book.title.length <= 40 %>
                 <h4><%= book.title %></h4>
             <% else %>
@@ -26,8 +29,13 @@
                 <div class="col-md-5 col-sm-5 text-left">
                   <p><%= link_to 'see more', book_path(book), class: 'btn btn-success' %></p>
                 </div>
-                <div class="col-md-5 col-sm-5 text-right">
-                  <%= button_to 'Add to cart', add_to_cart_book_path(book), class:'btn btn-warning right' %>
+                <div class="col-md-6 col-sm-6 text-right">
+                  <% if book.in_stock? %>
+                      <div><%= button_to 'Add to cart', add_to_cart_book_path(book), class:'btn btn-warning right' %></div>
+                  <% else %>
+                      <h6 class="text-center">SOLD OUT</h6>
+                  <%	end %>
+
                 </div>
               </div>
   </span>
