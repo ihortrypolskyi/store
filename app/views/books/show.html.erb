@@ -40,7 +40,7 @@
     </div>
         <div class="col-md-3 col-sm-3 col-xs-3">
           <% if @book.image? %>
-              <img class="large_image" class="img-responsive">
+
               <%= image_tag @book.image.url(:show) %>
           <% else %>
               <img src="http://placehold.it/150x250" alt="...">

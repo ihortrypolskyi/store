@@ -1,30 +1,30 @@
 <div class="col-md-3 col-sm-6">
   <span class="thumbnail">
             <% if book.image? %>
-                <img class="large_image" class="img-responsive">
                 <%= link_to book do %>
-                    <%= image_tag book.image.url(:index) %>
+                    <%= image_tag book.image.url(:index) if book.image? %>
                 <% end%>
             <% else %>
+
                 <img src="http://placehold.it/180x270" alt="...">
             <% end %>
-            <% if book.title.length <= 40 %>
-                <h4><%= book.title %></h4>
-            <% else %>
-                <h6><%= book.title %></h6>
-            <% end %>
-            <div class="star-rating" data-score= <%= book.avg_review %> ></div>
+              <br>
 
-            <div><% book.authors.each do |author| %>
+              <div class="price">
+                <%= number_to_currency(book.price, unit: 'грн.', format: '%n %u', precision: 0) %>
+              </div>
+
+              <div class="star-rating" data-score= <%= book.avg_review %> ></div>
+
+            <% book.authors.each do |author| %>
               <em><%= author.first_name %>
                   <%= author.last_name %></em>
-                 <% end %></div>
-      			<p><% book.categories.each do |category| %>
-                  <%= link_to category.name, category_path(category) %>
-               <% end %></p>
-              <p class="price"><%= number_to_currency(book.price, unit: 'грн.', format: '%n %u') %></p>
+            <% end %>
+      			<% book.categories.each do |category| %>
+                <div> <%= link_to category.name, category_path(category) %></div>
+               <% end %>
 
-              <hr class="line">
+
               <div class="row">
                 <div class="col-md-5 col-sm-5 text-left">
                   <p><%= link_to 'see more', book_path(book), class: 'btn btn-success' %></p>
@@ -35,9 +35,9 @@
                   <% else %>
                       <h6 class="text-center">SOLD OUT</h6>
                   <%	end %>
-
                 </div>
               </div>
+
   </span>
 </div>
 

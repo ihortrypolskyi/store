@@ -17,8 +17,8 @@
   @import "bootstrap-sprockets";
   @import "bootstrap";
 
-body{
-
+body {
+  margin-top: 65px;
 }
 
 footer{
@@ -47,4 +47,12 @@ footer{
 
 .well {
   background-color: white;
+}
+
+.price {
+  float: right;
+}
+
+.thumbnail {
+  height: 400px;
 }
