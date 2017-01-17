@@ -24,6 +24,7 @@ class BooksController < ApplicationController
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @reviews = Review.where(book_id: @book.id).order('created_at DESC')
+    @user = User.find(session[:user_id])
 
 
       if @reviews.blank?
@@ -69,5 +70,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :description, :price, :year, :isbn)
   end
-
 end
