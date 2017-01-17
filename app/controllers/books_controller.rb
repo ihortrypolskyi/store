@@ -13,9 +13,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @books = Book.order(:title).includes(:reviews)
-    @categories = Category.order(:name)
-    @authors = Author.order(:first_name)
+    @books = Book.all
+    @categories = Category.all
+    @authors = Author.all
 
   end
 
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.order(:title).includes(:reviews)
+    @books = Book.order('in_stock DESC, title').includes(:reviews)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
 

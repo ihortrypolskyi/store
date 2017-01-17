@@ -17,7 +17,6 @@ class Book < ApplicationRecord
   validates :pages, presence: true
   validates :language, presence: true
 
-
   mount_uploader :image, BookUploader
 
     # def self.by_category_and_author(category = nil, author = nil)
