@@ -9,7 +9,7 @@
       </div>
       <% @categories.each do |category| %>
       <ul class="list-group" >
-            <%= link_to category_path(category), class: 'list-group-item' do    %>
+              <%= link_to category_path(category), class: 'list-group-item' do %>
               <%= category.name %><span class="badge"><%= category.books.count %></span>
             <% end %>
       </ul>

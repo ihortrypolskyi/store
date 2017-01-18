@@ -30,12 +30,12 @@ class BookUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :index do
-    process resize_to_limit: [179, 265]
+  version :medium do
+    process resize_to_fit: [179, 265]
   end
 
-  version :show do
-    process resize_to_limit: [150, 250]
+  version :small do
+    process resize_to_fit: [150, 250]
   end
   # version :thumb do
   #   process resize_to_fit: [50, 50]
