@@ -40,7 +40,7 @@ gem 'acts_as_list'
 gem 'rails_admin', '~> 1.0'
 gem 'searchkick', '2.0.2'
 gem 'carrierwave', '~> 1.0'
-gem 'mini_magick'
+gem 'mini_magick', '4.6.0'
 
 
 
