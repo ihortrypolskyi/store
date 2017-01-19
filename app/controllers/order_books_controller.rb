@@ -1,0 +1,28 @@
+class OrderBooksController < ApplicationController
+  def create
+    @order = current_order
+    @order_book = @order.order_books.new(order_book_params)
+    @order.save
+    session[:order_id] = @order.id
+  end
+
+  def update
+    @order = current_order
+    @order_book = @order.order_books.find(params[:id])
+    @order_book.update_attributes(order_book_params)
+    @order_books = @order.order_books
+  end
+
+  def destroy
+    @order = current_order
+    @order_book = @order.order_books.find(params[:id])
+    @order_book.destroy
+    @order_books = @order.order_books
+  end
+
+  private
+
+  def order_book_params
+    params.require(:order_book).permit(:quantity, :book_id)
+  end
+end

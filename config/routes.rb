@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  resource :carts, only: [:show]
+  resources :order_books, only: [:create, :update, :destroy]
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -78,11 +81,9 @@ Rails.application.routes.draw do
       get 'search'
     end
 
-
-
-    member do
-      post 'add_to_cart'
-    end
+    # member do
+    #   post 'add_to_cart'
+    # end
   end
   resources :categories
   resources :authors

@@ -1,41 +1,48 @@
 <div class="col-md-3 col-sm-6">
   <span class="thumbnail">
-            <% if book.image? %>
-                <%= link_to book do %>
-                    <%= image_tag book.image.url(:medium) if book.image? %>
-                <% end%>
+      <% if book.image? %>
+          <%= link_to book do %>
+              <%= image_tag book.image.url(:medium) if book.image? %>
+          <% end%>
+      <% else %>
+          <img src="http://placehold.it/180x270" alt="...">
+      <% end %>
+        <br>
+        <div class="price">
+          <strong><%= number_to_currency(book.price, unit: 'грн.', format: '%n %u', precision: 0) %></strong>
+        </div>
+
+        <div class="star-rating" data-score= <%= book.avg_review %> ></div>
+
+      <% book.authors.each do |author| %>
+        <em><%= author.first_name %>
+            <%= author.last_name %></em>
+      <% end %>
+      <% book.categories.each do |category| %>
+          <div> <%= link_to category.name, category_path(category) %></div>
+      <% end %>
+
+        <div class="row">
+          <div>
+            <% if book.in_stock? %>
+                <div class="btn-group" role="group">
+                  <%= link_to 'More', book_path(book), class: 'btn btn-success' %>
+                <%= form_for order_book, remote: true do |f| %>
+                   <div class="input-group-btn">
+                          <%= f.hidden_field :quantity, value: 1 %>
+                          <%= f.hidden_field :book_id, value: book.id %>
+                          <%= f.submit 'Add to cart', class:'btn btn-warning' %>
+                    </div>
+                </div>
+                <% end %>
+                <!--<div> button_to 'Add to cart', add_to_cart_book_path(book), class:'btn btn-warning right' %></div>-->
             <% else %>
-                <img src="http://placehold.it/180x270" alt="...">
-            <% end %>
-              <br>
-              <div class="price">
-                <%= number_to_currency(book.price, unit: 'грн.', format: '%n %u', precision: 0) %>
-              </div>
-
-              <div class="star-rating" data-score= <%= book.avg_review %> ></div>
-
-            <% book.authors.each do |author| %>
-              <em><%= author.first_name %>
-                  <%= author.last_name %></em>
-            <% end %>
-      			<% book.categories.each do |category| %>
-                <div> <%= link_to category.name, category_path(category) %></div>
-               <% end %>
-
-
-              <div class="row">
-                <div class="col-md-5 col-sm-5 text-left">
-                  <p><%= link_to 'More', book_path(book), class: 'btn btn-success' %></p>
-                </div>
-                <div class="col-md-6 col-sm-6 text-right">
-                  <% if book.in_stock? %>
-                      <div><%= button_to 'Add to cart', add_to_cart_book_path(book), class:'btn btn-warning right' %></div>
-                  <% else %>
-                      <h6 class="text-center">SOLD OUT</h6>
-                  <%	end %>
-                </div>
-              </div>
-
+                <div class="btn-group" role="group">
+                  <%= link_to 'More', book_path(book), class: 'btn btn-success'  %>
+                  <button class="btn btn-default disabled">SOLD OUT</button></div>
+            <%	end %>
+          </div>
+        </div>
   </span>
 </div>
 

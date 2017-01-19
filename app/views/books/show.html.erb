@@ -28,12 +28,18 @@
             <div class="col-md-5 col-sm-5 col-xs-5">
 
               <%= render 'books/review' %>
-
               <% if @book.in_stock? %>
                <h2><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u', precision: 0) %></h2>
-                <div><%= button_to 'Add to cart', add_to_cart_book_path(@book), class:'btn btn-warning right' %></div>
+
+                  <%= form_for @order_book, remote: true do |f| %>
+                        <%= f.hidden_field :quantity, value: 1 %>
+                        <%= f.hidden_field :book_id, value: @book.id %>
+                        <%= f.submit 'Add to cart', class:'btn btn-warning' %>
+                  <% end %>
               <% else %>
                 <h2>Sold out</h2>
+                  <%= link_to 'Home', :root, class: 'btn btn-success' %>
+                  <%= link_to 'Back', :back, class: 'btn btn-success' %>
               <%	end %>
             </div>
       </div>

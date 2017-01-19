@@ -25,6 +25,7 @@ class BooksController < ApplicationController
     @authors = Author.order(:first_name)
     @reviews = Review.where(book_id: @book.id).order('created_at DESC')
     @user = User.find(session[:user_id])
+    @order_book = current_order.order_books.new
 
 
       if @reviews.blank?
@@ -38,6 +39,7 @@ class BooksController < ApplicationController
     @books = Book.order('in_stock DESC, title').includes(:reviews)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
+    @order_book = current_order.order_books.new
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)

@@ -1,0 +1,19 @@
+<% if !@order_book.nil? && @order_book.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @order_book.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<% if @order_books.size == 0 %>
+    <p class="text-center"> There are no books in your shopping cart.</p>
+    <%= link_to 'Go shopping', :back, class: 'btn btn-success' %>
+<% else %>
+    <div class="well">
+      <% @order_books.each do |order_book| %>
+          <%= render 'carts/cart_row', book: order_book.book, order_book: order_book, show_total: true %>
+      <% end %>
+    </div>
+<% end %>

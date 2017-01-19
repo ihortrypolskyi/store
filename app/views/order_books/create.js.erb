@@ -1,0 +1,5 @@
+<% if @order.errors.any? || @order_book.errors.any? %>
+alert("not valid.");
+<% else %>
+$(".cart-icon").html("<%= j(render 'shared/cart_icon') %>");
+<% end %>

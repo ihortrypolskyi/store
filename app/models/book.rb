@@ -10,6 +10,8 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :authors
   has_and_belongs_to_many :publishers
   has_many :reviews
+  has_many :order_books
+
   validates :title, presence: true, length: { maximum: 200 }
   validates :description, presence: true, length: { maximum: 4000 }
   validates :price, presence: true, length: { in: 1..4 }
@@ -19,6 +21,8 @@ class Book < ApplicationRecord
 
 
   mount_uploader :image, BookUploader
+
+  # default_scope { where(in_stock: true) }
 
     # def self.by_category_and_author(category = nil, author = nil)
     #   return where(category: category, author: author) if category && author
