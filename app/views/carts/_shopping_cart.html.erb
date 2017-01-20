@@ -11,9 +11,25 @@
     <p class="text-center"> There are no books in your shopping cart.</p>
     <%= link_to 'Go shopping', :back, class: 'btn btn-success' %>
 <% else %>
+    <div class="row">
+      <div class="col-xs-7">
+        <h5><span class="glyphicon glyphicon-shopping-cart"></span></h5>
+      </div>
+
+    </div>
     <div class="well">
       <% @order_books.each do |order_book| %>
           <%= render 'carts/cart_row', book: order_book.book, order_book: order_book, show_total: true %>
       <% end %>
+      <div class="btn-group" role="group">
+        <%= link_to 'Home', :root, class: 'btn btn-success' %>
+        <%= link_to 'Back', :back, class: 'btn btn-success' %>
+      </div>
+      <div class="pull-right">
+      <span class="cart-total-price">Total <%= number_to_currency current_order.order_total, unit: '₴',
+                                                                  format: '%n %u', precision: 0 %></span>
+      </div>
     </div>
+
+
 <% end %>

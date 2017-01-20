@@ -66,8 +66,45 @@ footer{
 
 }
 
-
-
 .glyphicon {
   color: #5CB85C;
+}
+
+.navbar {
+  height: 51px;
+}
+
+.phone {
+  margin-top: 5px;
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+.dropdown-menu {
+  min-width: 60px;
+}
+
+.glyphicon.glyphicon-shopping-cart {
+
+  font-size: 25px;
+  color: #449d44!important;
+}
+
+//.glyphicon.glyphicon-shopping-cart:hover{
+//
+//  color: #398439!important;
+//  font-size: 33px;
+//}
+
+.glyphicon.glyphicon-trash {
+  margin-top: 15px;
+  color: #449d44!important;
+}
+
+.cart-book-title {
+  font-size: 15px;
+}
+
+.cart-total-price {
+  font-size: 25px;
 }

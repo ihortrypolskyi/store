@@ -9,7 +9,7 @@
       <% end %>
         <br>
         <div class="price">
-          <strong><%= number_to_currency(book.price, unit: 'грн.', format: '%n %u', precision: 0) %></strong>
+          <strong><%= number_to_currency(book.price, unit: '₴', format: '%n %u', precision: 0) %></strong>
         </div>
 
         <div class="star-rating" data-score= <%= book.avg_review %> ></div>

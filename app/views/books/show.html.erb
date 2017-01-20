@@ -29,7 +29,7 @@
 
               <%= render 'books/review' %>
               <% if @book.in_stock? %>
-               <h2><%= number_to_currency(@book.price, unit: 'грн.', format: '%n %u', precision: 0) %></h2>
+               <h2><%= number_to_currency(@book.price, unit: '₴', format: '%n %u', precision: 0) %></h2>
 
                   <%= form_for @order_book, remote: true do |f| %>
                         <%= f.hidden_field :quantity, value: 1 %>
