@@ -1,22 +1,23 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-          <li class="<%= params[:controller] == 'books' ? 'active' : '' %>"><%= link_to 'Home', root_path %></li>
-        <li class="<%= params[:controller] == 'about' ? 'active' : '' %>"><%= link_to 'About', about_index_path %></li>
 
-      </ul>
-      <ul class="nav navbar-nav navbar-center">
+      <ul class="nav navbar-nav">
       <%= form_tag search_books_path, method: :get, class: 'navbar-form navbar-left', role: 'search' do %>
       <p>
+        <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
         <%= text_field_tag :search, params[:search], class: 'form-control', placeholder:'find a book...' %>
-        <%= submit_tag 'Search', name: nil, class: 'btn btn-success' %>
+
       </p>
          <% end %>
       </ul>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav nav-center">
         <li class="phone">0-800-937-99-92</li>
       </ul>
+      <ul class="nav navbar-nav">
+        <li class="cart-icon"><%= render 'shared/cart_icon' %></li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
               <ul class="nav navbar-nav" >
@@ -30,14 +31,30 @@
             </ul>
         <% else %>
             <ul class="nav navbar-nav">
-              <li><%= link_to t('Login'), '/login' %></li>
-              <li><%= link_to t('Signup'), '/signup' %>  </li>
+              <li class="<%= params[:controller] == 'sessions' ? 'active' : '' %>"><%= link_to t('Login'), '/login' %></li>
+              <li class="<%= params[:controller] == 'users' ? 'active' : '' %>"><%= link_to t('Signup'), '/signup' %>  </li>
             </ul>
         <% end %>
       </ul>
-       <ul class="nav navbar-nav navbar-right">
-        <li class="cart-icon"><%= render 'shared/cart_icon' %></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="<%= params[:controller] == 'books' ? 'active' : '' %>"><%= link_to 'Home', root_path %></li>
+        <li class="<%= params[:controller] == 'about' ? 'active' : '' %>"><%= link_to 'About', about_index_path %></li>
+
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
+<script type="text/javascript" charset="utf-8">
+    $('ul.nav li.dropdown').hover(function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+    }, function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+    });
+</script>
+
+
+
+

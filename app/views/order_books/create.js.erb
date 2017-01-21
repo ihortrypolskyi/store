@@ -2,4 +2,5 @@
 alert("not valid.");
 <% else %>
 $(".cart-icon").html("<%= j(render 'shared/cart_icon') %>");
+$('.cart-icon').fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
 <% end %>

@@ -74,27 +74,30 @@ footer{
   height: 51px;
 }
 
+.nav-center{
+  margin-left: 150px;
+}
+
 .phone {
-  margin-top: 5px;
-  margin-left: 30px;
+  //margin-top: 5px;
+
   font-size: 30px;
+  font-family: 'Glyphicons Halflings';
 }
 
 .dropdown-menu {
-  min-width: 60px;
+  min-width: 150px;
 }
 
 .glyphicon.glyphicon-shopping-cart {
-
-  font-size: 25px;
-  color: #449d44!important;
+  color: #ec971f!important;
+  font-size: 33px;
 }
 
-//.glyphicon.glyphicon-shopping-cart:hover{
-//
-//  color: #398439!important;
-//  font-size: 33px;
-//}
+.glyphicon.glyphicon-shopping-cart:hover{
+  color: #f0ad4e!important;
+  font-size: 33px;
+}
 
 .glyphicon.glyphicon-trash {
   margin-top: 15px;
@@ -107,4 +110,13 @@ footer{
 
 .cart-total-price {
   font-size: 25px;
+}
+
+.checkout {
+  margin-bottom: 11px;
+}
+
+.book-in-cart {
+  color: yellow;
+
 }

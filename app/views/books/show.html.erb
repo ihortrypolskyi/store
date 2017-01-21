@@ -34,7 +34,7 @@
                   <%= form_for @order_book, remote: true do |f| %>
                         <%= f.hidden_field :quantity, value: 1 %>
                         <%= f.hidden_field :book_id, value: @book.id %>
-                        <%= f.submit 'Add to cart', class:'btn btn-warning' %>
+                        <span class="add-to-cart-button"><%= f.submit 'Add to cart', class:'btn btn-warning' %></span>
                   <% end %>
               <% else %>
                 <h2>Sold out</h2>
