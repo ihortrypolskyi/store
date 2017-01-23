@@ -31,8 +31,9 @@
             <span><%= number_to_currency order_book.unit_price, unit: '₴', format: '%n %u', precision: 0 %></span>
           </div>
           <div class="col-xs-3 text-center" >
-            <%= f.number_field :quantity, value: order_book.quantity.to_i, class: "form-control", min: 1 %>
             <%= f.hidden_field :book_id, value: book.id %>
+            <%= f.number_field :quantity, value: order_book.quantity, class: "form-control", min: 1, remote: true %>
+
           </div>
           <div class="col-xs-5 text-center">
             <span><%= number_to_currency order_book.total_price, unit: '₴',
@@ -40,6 +41,7 @@
             <div>
               <%= link_to '', order_book, { data: { confirm: "Are you sure you wish to delete the book '#{order_book.book.title}' from your cart?" },
                                             method: :delete, remote: true, class: "glyphicon glyphicon-trash" } %>
+              <%= f.submit "Update Quantity" %>
             </div>
           </div>
         </div>

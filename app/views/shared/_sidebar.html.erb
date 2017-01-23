@@ -21,7 +21,7 @@
       </div>
       <% @authors.each do |author| %>
           <ul class="list-group">
-            <%= link_to author_path(author), class: 'list-group-item' do    %>
+            <%= link_to author_path(author), class: 'list-group-item' do %>
                 <%= author.first_name %>
                 <%= author.last_name %><span class="badge"><%= author.books.count %></span>
             <% end %>

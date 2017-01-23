@@ -54,7 +54,7 @@ footer{
 }
 
 .btn-group {
-  margin-left: 30px;
+  //margin-left: 30px;
 }
 
 .btn.disabled {
@@ -79,8 +79,6 @@ footer{
 }
 
 .phone {
-  //margin-top: 5px;
-
   font-size: 30px;
   font-family: 'Glyphicons Halflings';
 }
@@ -118,5 +116,16 @@ footer{
 
 .book-in-cart {
   color: yellow;
+}
 
+.form-control:focus {
+  border-color: #54b817;
+}
+
+.quantity {
+  width: 52px!important;
+}
+
+.sold-out {
+  margin-left: 12px;
 }
