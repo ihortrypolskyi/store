@@ -59,6 +59,7 @@ footer{
 
 .btn.disabled {
   opacity: 1;
+  width: 120px;
 }
 
 .style_image {
@@ -126,6 +127,11 @@ footer{
   width: 52px!important;
 }
 
-.sold-out {
-  margin-left: 12px;
+.hide-button {
+  background: transparent; border: none; padding: 0;
 }
+#amount {
+  width: 120%;
+  font-size: 22px;
+}
+

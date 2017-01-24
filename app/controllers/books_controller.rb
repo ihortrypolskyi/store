@@ -63,10 +63,6 @@ class BooksController < ApplicationController
     @authors = Author.order(:first_name)
   end
 
-  def add_to_cart
-
-  end
-
   private
 
   def book_params
