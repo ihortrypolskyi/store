@@ -2,7 +2,6 @@ class OrderBooksController < ApplicationController
   def create
     @order = current_order
     @order_book = @order.order_books.new(order_book_params)
-
     @order.save
     session[:order_id] = @order.id
   end

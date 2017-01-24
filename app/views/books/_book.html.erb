@@ -27,7 +27,7 @@
                       <span class="input-group-btn">
                           <%= link_to 'More', book_path(book), class: 'btn btn-success' %>
                       </span>
-                          <%= form_for order_book, remote: true do |f| %>
+                          <%= form_for @order_book, remote: true do |f| %>
                       <span class="input-group-btn quantity" >
                           <%= f.number_field :quantity, value: 1, class: "form-control change-amount", min: 1 %>
                       </span>

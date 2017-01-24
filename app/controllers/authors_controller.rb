@@ -22,6 +22,7 @@ class AuthorsController < ApplicationController
     @book = Book.find(params[:id])
     @categories = Category.order(:name)
     @category = Category.find(params[:id])
+    @order_book = current_order.order_books.new
 
   end
 

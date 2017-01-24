@@ -20,6 +20,7 @@ class CategoriesController < ApplicationController
     @books = @category.books
     @book = Book.find(params[:id])
     @authors = Author.order(:first_name)
+    @order_book = current_order.order_books.new
   end
 
   def index

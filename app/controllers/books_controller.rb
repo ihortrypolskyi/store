@@ -61,6 +61,7 @@ class BooksController < ApplicationController
 
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
+    @order_book = current_order.order_books.new
   end
 
   private

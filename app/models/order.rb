@@ -6,7 +6,6 @@ class Order < ApplicationRecord
   before_save :update_total
 
   def order_subtotal
-
   end
 
   def order_total
