@@ -74,7 +74,7 @@
                     <% @reviews.each do |review| %>
                       <div class="reviews">
                       <hr>
-                        <span > <div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
+                        <span ><div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
                             <strong><em><%= review.comment %></em></strong>
                             <% if current_user %>
                               <% if review.user_id == current_user.id && review.rule_17_minutes? %>
@@ -86,9 +86,7 @@
                         </span>
 
                         <span class="pull-right">
-                          <div><%= review.user.first_name %> <%= review.user.last_name %>
-
-                          </div>
+                          <div><%= review.user.first_name %> <%= review.user.last_name %></div>
                         </span>
                       </div>
                     <%	end %>

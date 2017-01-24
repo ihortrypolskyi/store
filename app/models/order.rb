@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :order_status
   has_many :order_books
   before_create :set_order_status
-  before_save :update_subtotal
+  # before_save :update_subtotal
   before_save :update_total
 
   def order_subtotal
@@ -23,9 +23,9 @@ class Order < ApplicationRecord
     self.order_status_id = 1
   end
 
-  def update_subtotal
-    self[:subtotal] = subtotal
-  end
+  # def update_subtotal
+  #   self[:subtotal] = subtotal
+  # end
 
   def update_total
     self[:total] = total

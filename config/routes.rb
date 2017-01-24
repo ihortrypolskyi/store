@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
+  resource :orders
   resource :carts, only: [:show]
   resources :order_books, only: [:create, :update, :destroy]
 

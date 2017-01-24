@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119091929) do
+ActiveRecord::Schema.define(version: 20170124141152) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -83,13 +83,20 @@ ActiveRecord::Schema.define(version: 20170119091929) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal  "subtotal",        precision: 12, scale: 3
-    t.decimal  "tax",             precision: 12, scale: 3
-    t.decimal  "shipping",        precision: 12, scale: 3
-    t.decimal  "total",           precision: 12, scale: 3
+    t.decimal  "subtotal",              precision: 12, scale: 3
+    t.decimal  "tax",                   precision: 12, scale: 3
+    t.decimal  "shipping",              precision: 12, scale: 3
+    t.decimal  "total",                 precision: 12, scale: 3
     t.integer  "order_status_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "customer_first_name"
+    t.string   "customer_last_name"
+    t.string   "customer_phone_number"
+    t.string   "customer_email"
+    t.string   "customer_house"
+    t.string   "customer_city"
+    t.string   "customer_postal_code"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
