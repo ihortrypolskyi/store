@@ -2,9 +2,6 @@ class Book < ApplicationRecord
   attr_accessor :avg_review
   searchkick word_start: [:title, :description]
 
-  # include Elasticsearch::Model
-  # include Elasticsearch::Model::Callbacks
-
   has_many :book_categories
   has_many :categories, through: :book_categories
   has_and_belongs_to_many :authors
@@ -21,8 +18,6 @@ class Book < ApplicationRecord
 
 
   mount_uploader :image, BookUploader
-
-  # default_scope { where(in_stock: true) }
 
     # def self.by_category_and_author(category = nil, author = nil)
     #   return where(category: category, author: author) if category && author

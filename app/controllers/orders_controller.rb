@@ -1,24 +1,34 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
-  def new
-    @order = Order.new
+  # def new
+  #   @order = Order.new
+  #   @categories = Category.order(:name)
+  #   @authors = Author.order(:first_name)
+  #   @order_book = @order.order_books.new
+  #   @order_books = @order.order_books
+  # end
+
+  # def create
+  #   @order = Order.new(order_params)
+  # end
+
+  def edit
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
   end
 
-  def create
-    @order = Order.new(order_params)
-    if @order.save
-      redirect_to :root, notice: 'Thank you for your order! Our manager will contact you within 5 hours.'
-    else
-      redirect_to :back
-    end
+  def update
+      if @order.update(order_params)
+        session[:order_id] = nil
+        redirect_to :root, notice: 'Thank you for order! Our manager will contact you within 1 hour.'
+      else
+        render :edit
+      end
   end
 
-  def show
-
-  end
+  # def show
+  # end
 
   private
 
@@ -30,5 +40,8 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:id, :subtotal, :tax, :shipping, :total, :order_status_id, :customer_first_name, :customer_last_name, :customer_phone_number, :customer_email, :customer_house, :customer_city, :customer_postal_code )
   end
 
+  def order_book_params
+    params.require(:order_book).permit(:quantity, :book_id)
+  end
 
 end

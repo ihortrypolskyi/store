@@ -2,6 +2,7 @@ dashboard  http://localhost:3000/admin
 user: storeadmin
 pass: store
 
+sudo -i service elasticsearch start
 
 # README
 

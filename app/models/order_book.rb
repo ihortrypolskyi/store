@@ -30,13 +30,13 @@ class OrderBook < ApplicationRecord
 
   def book_present
     if book.nil?
-      errors.add(:book, "is not valid or is not in stock.")
+      errors.add(:book, 'is not valid or is not in stock.')
     end
   end
 
   def order_present
     if order.nil?
-      errors.add(:order, "is not a valid order.")
+      errors.add(:order, 'is not a valid order.')
     end
   end
 

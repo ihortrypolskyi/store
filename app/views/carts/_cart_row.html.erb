@@ -32,20 +32,17 @@
           </div>
           <div class="col-xs-3 text-center" >
             <%= f.hidden_field :book_id, value: book.id %>
-            <%= button_tag(type: 'submit', class: "btn btn-primary", class: 'hide-button') do %>
-                <%= f.number_field :quantity, value: order_book.quantity, class: "form-control", id: 'amount', min: 1, remote: true %>
+            <%= button_tag(type: 'submit', class: 'btn btn-primary', class: 'hide-button') do %>
+                <%= f.number_field :quantity, value: order_book.quantity, class: 'form-control',
+                                   id: 'amount', min: 1, remote: true %>
             <% end %>
-
-
           </div>
           <div class="col-xs-5 text-center">
             <span><%= number_to_currency order_book.total_price, unit: '₴',
                                                       format: '%n %u', precision: 0 %></span>
             <div>
               <%= link_to '', order_book, { data: { confirm: "Are you sure you wish to delete the book '#{order_book.book.title}' from your cart?" },
-                                            method: :delete, remote: true, class: "glyphicon glyphicon-trash" } %>
-
-
+                                            method: :delete, remote: true, class: 'glyphicon glyphicon-trash' } %>
             </div>
           </div>
         </div>

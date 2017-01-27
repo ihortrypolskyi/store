@@ -24,7 +24,7 @@ class BooksController < ApplicationController
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @reviews = Review.where(book_id: @book.id).order('created_at DESC')
-    @user = User.find(session[:user_id])
+    # @user = User.find(session[:user_id])
     @order_book = current_order.order_books.new
 
 
@@ -41,6 +41,8 @@ class BooksController < ApplicationController
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
 
+
+
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)
 
@@ -53,15 +55,30 @@ class BooksController < ApplicationController
   end
 
   def search
-    if params[:search].present?
-      @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
+    # if params[:search].present?
+    #   @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
+    # else
+    #   @books = Book.all
+    # end
+    if params[:query].present?
+      @books = Book.search(params[:query], page: params[:page])
     else
-      @books = Book.all
+      @books = Book.all.page params[:page]
     end
 
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
+
+    for singlebook in @books
+      @reviews = Review.where(book_id: singlebook.id)
+
+      if @reviews.blank?
+        singlebook.avg_review = 0
+      else
+        singlebook.avg_review = @reviews.average(:rating).round(2)
+      end
+    end
   end
 
   private

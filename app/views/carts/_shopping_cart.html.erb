@@ -28,8 +28,8 @@
         </div>
         <div class="col-xs-6">
             <div class="pull-right">
-              <span><%= link_to 'Checkout', new_orders_path(@order), class: 'btn btn-warning checkout' %></span>
-            <span class="cart-total-price">Total <%= number_to_currency current_order.order_total, unit: '₴',
+            <span><%= link_to 'Checkout', edit_order_path(@order), class: 'btn btn-warning checkout' %></span>
+            <span class="cart-total-price">Total <%= number_to_currency current_order.subtotal, unit: '₴',
                                                                         format: '%n %u', precision: 0 %></span>
             </div>
         </div>
