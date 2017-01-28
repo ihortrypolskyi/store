@@ -16,7 +16,6 @@ class BooksController < ApplicationController
     @books = Book.all
     @categories = Category.all
     @authors = Author.all
-
   end
 
   def show
@@ -26,7 +25,6 @@ class BooksController < ApplicationController
     @reviews = Review.where(book_id: @book.id).order('created_at DESC')
     # @user = User.find(session[:user_id])
     @order_book = current_order.order_books.new
-
 
       if @reviews.blank?
         @avg_review = 0
@@ -41,8 +39,6 @@ class BooksController < ApplicationController
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
 
-
-
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)
 
@@ -55,16 +51,11 @@ class BooksController < ApplicationController
   end
 
   def search
-    # if params[:search].present?
-    #   @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
-    # else
-    #   @books = Book.all
-    # end
-    if params[:query].present?
-      @books = Book.search(params[:query], page: params[:page])
-    else
-      @books = Book.all.page params[:page]
-    end
+      if params[:search].present?
+        @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
+      else
+        @books = Book.all
+      end
 
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)

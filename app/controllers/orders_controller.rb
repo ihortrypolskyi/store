@@ -1,17 +1,17 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
-  # def new
-  #   @order = Order.new
-  #   @categories = Category.order(:name)
-  #   @authors = Author.order(:first_name)
-  #   @order_book = @order.order_books.new
-  #   @order_books = @order.order_books
-  # end
+  def new
+    @order = Order.new
+    @categories = Category.order(:name)
+    @authors = Author.order(:first_name)
+    @order_book = @order.order_books.new
+    @order_books = @order.order_books
+  end
 
-  # def create
-  #   @order = Order.new(order_params)
-  # end
+  def create
+    @order = Order.new(order_params)
+  end
 
   def edit
     @categories = Category.order(:name)
@@ -37,7 +37,8 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:id, :subtotal, :tax, :shipping, :total, :order_status_id, :customer_first_name, :customer_last_name, :customer_phone_number, :customer_email, :customer_house, :customer_city, :customer_postal_code )
+    params.require(:order).permit(:id, :subtotal, :tax, :shipping, :total, :order_status_id,
+                                  :customer_first_name, :customer_last_name, :customer_phone_number, :customer_email, :customer_house, :customer_city, :customer_postal_code )
   end
 
   def order_book_params

@@ -5,9 +5,8 @@
       <ul class="nav navbar-nav">
       <%= form_tag search_books_path, method: :get, class: 'navbar-form navbar-left', role: 'search' do %>
       <p>
-        <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
-        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder:'find a book...' %>
-
+       <%= text_field_tag :search, params[:search], class: 'form-control', placeholder:'find a book...' %>
+       <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
       </p>
          <% end %>
       </ul>
@@ -41,7 +40,6 @@
         <li class="<%= params[:controller] == 'about' ? 'active' : '' %>"><%= link_to 'About', about_index_path %></li>
 
       </ul>
-
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

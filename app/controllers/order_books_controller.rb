@@ -8,9 +8,9 @@ class OrderBooksController < ApplicationController
       if @order.save
         format.js
       else
-        format.html { redirect :back }
+        format.html { redirect_to :back }
       end
-      # TODO
+      # TODO   if @order_book.save
     end
   end
 
@@ -23,10 +23,10 @@ class OrderBooksController < ApplicationController
       if @order.save
         format.js
       else
-        format.html { redirect :back }
+        format.html { redirect_to :back }
       end
+    # TODO   if @order_book.save
     end
-    # TODO
   end
 
   def destroy

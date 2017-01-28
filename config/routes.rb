@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orders
   resource :cart, only: [:show]
+  # TODO
   resources :order_books, only: [:create, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'

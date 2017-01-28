@@ -7,7 +7,8 @@
       </ul>
     </div>
 <% end %>
-<% if @order_books.size == 0 %>
+<% if @order.order_books.size == 0 %>
+    <!--TODO-->
     <p class="text-center"> There are no books in your shopping cart.</p>
     <div class="btn-group" role="group">
       <%= link_to 'Home', :root, class: 'btn btn-success' %>
@@ -16,8 +17,9 @@
 <% else %>
 
     <div class="well">
-      <% @order_books.each do |order_book| %>
+      <% @order.order_books.each do |order_book| %>
           <%= render 'carts/cart_row', book: order_book.book, order_book: order_book, show_total: true %>
+          <!--TODO-->
       <% end %>
       <div class="row">
         <div class="col-xs-6">

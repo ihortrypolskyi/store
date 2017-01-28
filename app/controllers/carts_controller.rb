@@ -4,6 +4,6 @@ class CartsController < ApplicationController
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order = current_order
-    # @order = Order.find(session[:order_id])
+      # @order = Order.find(session[:order_id])
   end
 end
