@@ -17,7 +17,8 @@ class AuthorsController < ApplicationController
   def show
     @authors = Author.order(:first_name)
     @author = Author.find(params[:id])
-    @books = @author.books
+    @books = @author.books.paginate(:page => params[:page], per_page: 4)
+
     # @books = @author.books.by_category_and_author(params[:category], params[:author])
     @book = Book.find(params[:id])
     @categories = Category.order(:name)
@@ -35,7 +36,6 @@ class AuthorsController < ApplicationController
         singlebook.avg_review = @reviews.average(:rating).round(2)
       end
     end
-
   end
 
   def index

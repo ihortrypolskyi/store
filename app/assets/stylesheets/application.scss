@@ -55,7 +55,7 @@ footer{
 
 .btn.disabled {
   opacity: 1;
-  width: 122px;
+  width: 110px;
 }
 
 .style_image {
@@ -130,7 +130,9 @@ footer{
   font-size: 22px;
 }
 
-.carousel-inner.thumbnail {
-    heght: 408px;
-    visibility: hidden;
-  }
+.pagination { padding: 3px; margin: 3px; }
+.pagination a { border-radius: 2px; padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #97e936; text-decoration: none; color: #54b817; }
+.pagination a:hover,
+.pagination a:active { border: 1px solid #54b817; color: #000; }
+.pagination span.current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #54b817; font-weight: bold; background-color: #54b817; color: #FFF; }
+.pagination span.disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #eee; color: #ddd; }

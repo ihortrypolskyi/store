@@ -1,6 +1,10 @@
 <div class="categories-show">
   <h2 class="text-center"><%= @category.name %></h2>
   <div class="row">
-    <p><%= render @category.books %></p>
+    <p><%= render @books %></p>
+  </div>
+  <div class="row">
+    <%= will_paginate @books %>
+    <!--TODO-->
   </div>
 </div>

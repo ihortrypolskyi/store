@@ -5,7 +5,9 @@
   <div class="row">
       <p><%= render @books, book: @book, order_book: @order_book %></p>
   </div>
-
-
+  <div class="row text-center">
+    <%= will_paginate @books %>
+  </div>
+  <hr>
 </div>
 
