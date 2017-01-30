@@ -29,6 +29,10 @@
                 <div class="alert alert-danger"><%= flash[:alert] %></div>
             <% end %>
             <%= yield %>
+            <div class="row">
+              <h4 class="text-center">NEWCOMERS:</h4>
+              <p><%= render 'books/carousel' %></p>
+            </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-3">
             <%= render 'shared/sidebar' %>

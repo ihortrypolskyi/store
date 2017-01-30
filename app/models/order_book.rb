@@ -2,11 +2,11 @@ class OrderBook < ApplicationRecord
   belongs_to :book
   belongs_to :order
 
-  after_commit :reindex_book
-
-  def reindex_book
-    book.reindex # or reindex_async
-  end
+  # after_commit :reindex_book
+  #
+  # def reindex_book
+  #   books.reindex # or reindex_async
+  # end
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :book_present

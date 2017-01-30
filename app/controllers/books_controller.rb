@@ -25,6 +25,8 @@ class BooksController < ApplicationController
     @reviews = Review.where(book_id: @book.id).order('created_at DESC')
     # @user = User.find(session[:user_id])
     @order_book = current_order.order_books.new
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
 
       if @reviews.blank?
         @avg_review = 0
@@ -38,6 +40,8 @@ class BooksController < ApplicationController
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)
