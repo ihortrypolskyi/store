@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     @books = Book.order(:title)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
   end
 
   # GET /users/1/edit
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
+
 
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'

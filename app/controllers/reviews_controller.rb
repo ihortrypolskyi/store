@@ -15,6 +15,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
   end
 
   # GET /reviews/1/edit

@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
   def new
-
     @books = Book.order(:title)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
   end
 
   def create
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to root_url
-      flash[:notice] = 'logged in'
+      flash[:notice] = 'Welcome'
     else
       render :new
     end
@@ -24,6 +25,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id]= nil
     redirect_to '/'
-    flash[:notice] = 'logged out'
+    flash[:notice] = 'You have successfully logged out'
   end
 end

@@ -136,3 +136,8 @@ footer{
 .pagination a:active { border: 1px solid #54b817; color: #000; }
 .pagination span.current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #54b817; font-weight: bold; background-color: #54b817; color: #FFF; }
 .pagination span.disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #eee; color: #ddd; }
+
+.list-group-item.list-group {
+  background-color: #e7e7e7;
+}
+
