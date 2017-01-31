@@ -22,19 +22,19 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
-    @reviews = Review.where(book_id: @book.id).order('created_at DESC')
+    @reviews = Review.where(book_id: @book.id).paginate(:page => params[:page], per_page: 3).order('created_at DESC')
 
     # @user = User.find(session[:user_id])
     @order_book = current_order.order_books.new
     @carousel_first_slide = Book.order("created_at").last(4)
     @carousel_second_slide = Book.order("created_at").last(8).first(4)
 
-      if @reviews.blank?
+      unless @reviews.present?
         @avg_review = 0
       else
-        @avg_review = @reviews.average(:rating).round(2)
+        @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
       end
-    @reviews = Review.paginate(:page => params[:page], per_page: 3)
+    # TODO
   end
 
   def index
