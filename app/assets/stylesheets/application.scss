@@ -49,8 +49,18 @@ footer{
   background-color: white;
 }
 
+.old-price {
+  float: right;
+  font-size: small;
+  text-decoration: line-through;
+  padding-right: 5px;
+}
+
 .price {
   float: right;
+  font-size: medium;
+  font-weight: bold;
+  color: #449d44;
 }
 
 .btn.disabled {

@@ -8,8 +8,9 @@
           <img src="http://placehold.it/180x270" alt="...">
       <% end %>
         <br>
-        <div class="price">
-          <strong><%= number_to_currency(book.price, unit: '₴', format: '%n %u', precision: 0) %></strong>
+        <div>
+          <span class="price"><%= number_to_currency(book.price, unit: '₴', format: '%n %u', precision: 0) %>  </span>
+          <span class= "old-price">   <%= number_to_currency(book.old_price, unit: '', format: '%n %u', precision: 0) %></span>
         </div>
 
         <div class="star-rating" data-score= <%= book.avg_review %> ></div>

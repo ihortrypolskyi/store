@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   attr_accessor :avg_review
-  searchkick word_start: [:title, :description]
+  # searchkick word_start: [:title, :description]
 
   has_many :book_categories
   has_many :categories, through: :book_categories
