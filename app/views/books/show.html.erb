@@ -29,12 +29,16 @@
 
               <%= render 'books/review_count' %>
               <% if @book.in_stock? %>
-               <h2><%= number_to_currency(@book.price, unit: '₴', format: '%n %u', precision: 0) %></h2>
+                  <div>
+                    <span class= "old-price-show"><%= number_to_currency(@book.old_price, unit: '', format: '%n %u', precision: 0) %></span>
+                    <span class="price-show"><%= number_to_currency(@book.price, unit: '₴', format: '%n %u', precision: 0) %></span>
+                  </div>
+
 
                   <%= form_for @order_book, remote: true do |f| %>
                         <%= f.hidden_field :quantity, value: 1 %>
                         <%= f.hidden_field :book_id, value: @book.id %>
-                        <span class="add-to-cart-button"><%= f.submit 'Add to cart', class:'btn btn-warning' %></span>
+                        <div class="add-to-cart-button"><%= f.submit 'Add to cart', class:'btn btn-warning' %></div>
                   <% end %>
               <% else %>
                 <h2>Sold out</h2>
@@ -58,7 +62,7 @@
           <div class="col-md-5 col-sm-5 col-xs-5">
             <div class="well">
                 <h4>Description</h4>
-                <p>Human beings have always been mythmakers.” So begins best-selling writer Karen Armstrong’s concise yet compelling investigation into myth: what it is, how it has evolved, and why we still so desperately need it. She takes us from the Paleolithic period and the myths of the hunters right up to the Great Western Transformation” of the last five hundred years and the discrediting of myth by science. The history of myth is the history of humanity, our stories and beliefs, our curiosity and attempts to understand the world, which link us to our ancestors and each other. Heralding a major series of retellings of international myths by authors from around the world, Armstrong’s characteristically insightful and eloquent book serves as a brilliant and thought-provoking introduction to myth in the broadest senseand explains why if we dismiss it, we do so at our peril.</p>
+                <p><%=	@book.description %></p>
             </div>
           </div>
 

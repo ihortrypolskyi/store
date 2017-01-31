@@ -63,6 +63,21 @@ footer{
   color: #449d44;
 }
 
+.old-price-show {
+  float: left;
+  //font-size: small;
+  text-decoration: line-through;
+  padding-right: 5px;
+  font-weight: bold;
+}
+
+.price-show {
+  //float: right;
+  font-size: xx-large;
+  font-weight: bold;
+  color: #449d44;
+}
+
 .btn.disabled {
   opacity: 1;
   width: 110px;
