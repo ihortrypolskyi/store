@@ -68,31 +68,20 @@
                     <%= link_to 'Leave your review here...', new_book_review_path(@book), class: 'btn btn-success'  %>
                   </div>
                     <% @reviews.each do |review| %>
+                     <hr>
+                        <div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
                       <% if review.review_status_id == 2 %>
-                      <div class="reviews">
-                      <hr>
-                        <span ><div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
-                            <strong><em><%= review.comment %></em></strong>
-                        </span>
-
-                        <span class="pull-right">
-                          <div><%= review.user.first_name %> <%= review.user.last_name %></div>
-                        </span>
-                      </div>
-
+                            <div>
+                              <strong><em><%= review.comment %></em></strong>
+                            </div>
                       <% else %>
-                      <div class="reviews">
-                        <hr>
-                        <span ><div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
-                            <em>This comment's passing moderation</em>
-                        </span>
-
-                        <span class="pull-right">
-                          <div><%= review.user.first_name %> <%= review.user.last_name %></div>
-                        </span>
-                      </div>
+                            <div>
+                              <em>This comment's passing moderation</em>
+                            </div>
                       <% end %>
-                  <% end %>
+                         <div class="pull-left user-contacts"><%= review.created_at.strftime("%d.%m.%Y")%></div>
+                         <div class="pull-right user-contacts"><%= review.user.first_name %> <%= review.user.last_name %></div>
+            <% end %>
             </div>
             <div class="row text-center">
               <%= will_paginate @reviews %>
