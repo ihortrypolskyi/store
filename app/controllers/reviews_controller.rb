@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_book
   before_action :review_owner, only: [:destroy, :edit, :update]
 
+
   # GET /reviews
   def index
     @reviews = Review.all
@@ -30,7 +31,7 @@ class ReviewsController < ApplicationController
     @review.book_id = @book.id
 
     if @review.save
-      redirect_to @book, notice: 'Review was successfully created.'
+      redirect_to @book, notice: "Thank you! Your review will appear on the site after moderation."
     else
       render :new
     end
@@ -51,6 +52,10 @@ class ReviewsController < ApplicationController
     redirect_to @book, notice: 'Review was successfully destroyed.'
   end
 
+  def approve
+    Review.update_all({review_status_id: 2}, {id: params[:review_ids]})
+  end
+
   private
 
   def set_review
@@ -62,7 +67,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-      params.require(:review).permit(:rating, :comment)
+      params.require(:review).permit(:rating, :comment, :review_status_id)
   end
 
   def review_owner
@@ -70,6 +75,10 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'You have no permission'
       redirect_to @book
     end
+  end
+
+  def set_review_status
+    self.review_status_id = 1
   end
 
 end

@@ -27,7 +27,7 @@
 
             <div class="col-md-5 col-sm-5 col-xs-5">
 
-              <%= render 'books/review' %>
+              <%= render 'books/review_count' %>
               <% if @book.in_stock? %>
                <h2><%= number_to_currency(@book.price, unit: '₴', format: '%n %u', precision: 0) %></h2>
 
@@ -64,52 +64,35 @@
 
           <div class="col-md-4 col-sm-4 col-xs-4">
             <div class="well">
-              <% if current_user %>
-
                   <div class="text-center">
                     <%= link_to 'Leave your review here...', new_book_review_path(@book), class: 'btn btn-success'  %>
                   </div>
                     <% @reviews.each do |review| %>
+                      <% if review.review_status_id == 2 %>
                       <div class="reviews">
                       <hr>
                         <span ><div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
                             <strong><em><%= review.comment %></em></strong>
-
-                              <% if review.user_id == current_user.id && review.rule_17_minutes? %>
-                              <%=   link_to t('edit'), edit_book_review_path(review.book_id, review) %> |
-                              <%=   link_to t('delete'), book_review_path(review.book_id, review),
-                                                  method: :delete, data: { confirm: 'Are you sure?' } %>
-                              <% end %>
-
                         </span>
 
                         <span class="pull-right">
                           <div><%= review.user.first_name %> <%= review.user.last_name %></div>
                         </span>
                       </div>
-                    <%	end %>
-                  <% else %>
-                  <div class="text-center">
-                    <h4>Please, sign in to leave a comment</h4>
-                  </div>
-                  <% @reviews.each do |review| %>
+
+                      <% else %>
                       <div class="reviews">
                         <hr>
                         <span ><div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
-                            <strong><em><%= review.comment %></em></strong>
-
-
-
+                            <em>This comment's passing moderation</em>
                         </span>
 
                         <span class="pull-right">
                           <div><%= review.user.first_name %> <%= review.user.last_name %></div>
                         </span>
                       </div>
-                  <%	end %>
-
-               <% end %>
-
+                      <% end %>
+                  <% end %>
             </div>
             <div class="row text-center">
               <%= will_paginate @reviews %>
