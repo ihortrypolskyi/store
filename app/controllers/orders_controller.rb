@@ -16,12 +16,15 @@ class OrdersController < ApplicationController
   def edit
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
   end
 
   def update
       if @order.update(order_params)
         session[:order_id] = nil
         redirect_to :root, notice: 'Thank you for order! Our manager will contact you within 1 hour.'
+        OrderMailer.new_order(@order).deliver_now
       else
         render :edit
       end

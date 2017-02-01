@@ -6,9 +6,8 @@ class Order < ApplicationRecord
   # TODO
   before_save :update_subtotal
 
-  # validates_presence_of :customer_first_name, :customer_last_name, :customer_phone_number, :customer_email,
-  #                       :customer_house, :customer_city, :customer_postal_code
-  # TODO
+  validates_presence_of :customer_first_name, :customer_last_name, :customer_phone_number, :customer_email,
+                        :customer_house, :customer_city, :customer_postal_code
 
   def subtotal
     order_books.collect { |ob| ob.valid? ? (ob.quantity * ob.unit_price) : 0 }.sum
