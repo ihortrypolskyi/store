@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   def show
     @categories = Category.order(:name)
     @category = Category.find(params[:id])
-    @books = @category.books.paginate(:page => params[:page], per_page: 4).order('in_stock DESC, title')
+    @books = @category.books.paginate(page: params[:page], per_page: 4).order('in_stock DESC, title')
     # TODO
     @book = Book.find(params[:id])
     @authors = Author.order(:first_name)

@@ -10,6 +10,6 @@ class OrderMailer < ApplicationMailer
     @order_books = @order.order_books
 
     mail to: @order.customer_email,
-         subject: "#{@order.customer_first_name} #{@order.customer_last_name} your order's in progress"
+         subject: "#{@order.customer_first_name} #{@order.customer_last_name}, your order's in progress"
   end
 end

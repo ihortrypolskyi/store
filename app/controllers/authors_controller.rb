@@ -17,7 +17,7 @@ class AuthorsController < ApplicationController
   def show
     @authors = Author.order(:first_name)
     @author = Author.find(params[:id])
-    @books = @author.books.paginate(:page => params[:page], per_page: 4).order('in_stock DESC, title')
+    @books = @author.books.paginate(page: params[:page], per_page: 4).order('in_stock DESC, title')
 
     # @books = @author.books.by_category_and_author(params[:category], params[:author])
     @book = Book.find(params[:id])

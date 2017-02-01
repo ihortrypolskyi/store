@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
-    @reviews = Review.where(book_id: @book.id).paginate(:page => params[:page], per_page: 3).order('created_at DESC')
+    @reviews = Review.where(book_id: @book.id).paginate(page: params[:page], per_page: 3).order('created_at DESC')
 
     # @user = User.find(session[:user_id])
     @order_book = current_order.order_books.new
@@ -38,7 +38,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.paginate(:page => params[:page], per_page: 4).order('in_stock DESC, title').includes(:reviews)
+    @books = Book.paginate(page: params[:page], per_page: 4).order('in_stock DESC, title').includes(:reviews)
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
@@ -57,15 +57,18 @@ class BooksController < ApplicationController
   end
 
   def search
-      if params[:search].present?
-        @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
-      else
-        @books = Book.all
-      end
+
+    if params[:search].present?
+      @books = Book.search(params[:search], page: params[:page], per_page: 4, fields: [:title, :description], match: :word_start)
+    else
+      @books = Book.paginate(page: params[:page], per_page: 4)
+    end
 
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)
