@@ -60,12 +60,14 @@ class BooksController < ApplicationController
       if params[:search].present?
         @books = Book.search(params[:search], fields: [:title, :description], match: :word_start)
       else
-        @books = Book.all
+          @books = Book.all
       end
 
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)
