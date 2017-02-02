@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'booksssstore@gmail.com'
+  ADMIN_EMAIL = "booksssstore@gmail.com".freeze
+  default from: ADMIN_EMAIL
   layout 'mailer'
 end
