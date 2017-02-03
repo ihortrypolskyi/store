@@ -7,9 +7,10 @@
       </ul>
     </div>
 <% end %>
+<div class="thumbnail">
 <% if @order.order_books.size == 0 %>
     <!--TODO-->
-    <p class="text-center"> YOUR SHOPPING CART IS EMPTY.</p>
+    <h4 class="text-center no-reviews" > YOUR SHOPPING CART IS EMPTY.</h4>
     <div class="btn-group" role="group">
       <%= link_to 'Home', :root, class: 'btn btn-success' %>
       <%= link_to 'Back', :back, class: 'btn btn-success' %>
@@ -38,3 +39,4 @@
       </div>
     </div>
 <% end %>
+</div>
