@@ -7,4 +7,9 @@ class OrderMailerPreview < ActionMailer::Preview
     OrderMailer.new_order(order)
   end
 
+  def new_order_admin
+    order = Order.last
+    OrderMailer.new_order_admin(order)
+  end
+
 end

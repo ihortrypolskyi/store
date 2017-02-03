@@ -24,6 +24,8 @@ class OrdersController < ApplicationController
       if @order.update(order_params)
         session[:order_id] = nil
         redirect_to :root, notice: 'Thank you for order! Our manager will contact you within 1 hour.'
+        OrderMailer.new_order(@order).deliver_now
+        OrderMailer.new_order_admin(@order).deliver_now
       else
         render :edit
       end
