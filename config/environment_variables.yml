@@ -1,0 +1,6 @@
+development:
+  GMAIL_USERNAME: booksssstore@gmail.com
+  GMAIL_PASSWORD: booksssstore1
+production:
+  GMAIL_USERNAME: booksssstore@gmail.com
+  GMAIL_PASSWORD: booksssstore1
