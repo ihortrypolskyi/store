@@ -13,7 +13,11 @@
           <span class= "old-price"><%= number_to_currency(book.old_price, unit: '', format: '%n %u', precision: 0) %></span>
         </div>
 
-        <div class="star-rating" data-score= <%= book.avg_review %> ></div>
+        <% if book.reviews.any? %>
+          <div class="star-rating" data-score= <%= book.avg_review %> ></div>
+        <%	else %>
+          <div class="no-reviews">0 reviews</div>
+        <% end %>
 
       <% book.authors.each do |author| %>
         <em><%= author.first_name %>
