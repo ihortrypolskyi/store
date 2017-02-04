@@ -31,7 +31,9 @@
         </div>
         <div class="col-xs-6">
             <div class="pull-right">
-            <span><%= link_to 'Checkout', edit_order_path(@order), class: 'btn btn-warning checkout' %></span>
+              <button class="btn btn-warning checkout"  data-toggle="modal" data-target="#myupdateorder_<%= @order.id %>">
+                <%= 'Checkout' %>
+              </button>
             <span class="cart-total-price">Total <%= number_to_currency current_order.subtotal, unit: '₴',
                                                                         format: '%n %u', precision: 0 %></span>
             </div>
@@ -39,4 +41,19 @@
       </div>
     </div>
 <% end %>
+</div>
+
+<div class="modal fade" id="myupdateorder_<%= @order.id %>" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title text-center no-reviews" id="myModalLabel">PLEASE FILL IN THE FORM BELOW:</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'orders/form', order: @order %>
+      </div>
+    </div>
+  </div>
 </div>
