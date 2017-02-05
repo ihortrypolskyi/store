@@ -29,11 +29,17 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.book_id = @book.id
+    @reviews = Review.where(book_id: @book.id).paginate(page: params[:page], per_page: 3).order('created_at DESC')
+    @carousel_first_slide = Book.order("created_at").last(4)
+    @carousel_second_slide = Book.order("created_at").last(8).first(4)
 
-    if @review.save
-      redirect_to @book, notice: "Thank you! Your review will appear on the site after moderation."
-    else
-      render :new
+    respond_to do |format|
+      if @review.save
+        format.js
+        format.html { redirect_to @book, notice: "Thank you! Your review will appear on the site after moderation." }
+      else
+        render :new
+      end
     end
   end
 

@@ -34,7 +34,6 @@
                     <span class="price-show"><%= number_to_currency(@book.price, unit: '₴', format: '%n %u', precision: 0) %></span>
                   </div>
 
-
                   <%= form_for @order_book, remote: true do |f| %>
                         <%= f.hidden_field :quantity, value: 1 %>
                         <%= f.hidden_field :book_id, value: @book.id %>
@@ -66,30 +65,8 @@
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-4 col-xs-4">
-            <div class="well">
-                  <div class="text-center">
-                    <%= link_to 'Leave your review here...', new_book_review_path(@book), class: 'btn btn-success'  %>
-                  </div>
-                    <% @reviews.each do |review| %>
-                     <hr>
-                        <div class="star-rating" class="pull-left" data-score= <%= review.rating %> ></div>
-                      <% if review.review_status_id == 2 %>
-                            <div>
-                              <strong><em><%= review.comment %></em></strong>
-                            </div>
-                      <% else %>
-                            <div>
-                              <em>This comment's passing moderation</em>
-                            </div>
-                      <% end %>
-                         <div class="pull-left user-contacts"><%= review.created_at.strftime("%d.%m.%Y")%></div>
-                         <div class="pull-right user-contacts"><%= review.user.first_name %> <%= review.user.last_name %></div>
-            <% end %>
-            </div>
-            <div class="row text-center">
-              <%= will_paginate @reviews %>
-            </div>
+          <div class="col-md-4 col-sm-4 col-xs-4" id="reviews_list">
+            <%= render 'reviews_list' %>
           </div>
     </div>
 </div>

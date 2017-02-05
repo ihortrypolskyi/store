@@ -1,0 +1,5 @@
+$("#newReview_<% @review.id %>").modal('hide');
+$(".reviews").fadeOut(500, function(){
+    $(this).remove();
+    $("#reviews_list").prepend('<%= j render 'books/reviews_list', book: @book %>');
+});
