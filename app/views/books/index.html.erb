@@ -2,12 +2,14 @@
   <div class="row">
     <p><%= render 'slider' %></p>
   </div>
-  <div class="row">
+  <div >
+  <div class="row index_books">
       <p><%= render @books, book: @book, order_book: @order_book %></p>
   </div>
-  <div class="row text-center">
-    <%= will_paginate @books %>
+  <div class="row text-center paginate">
+    <%= render 'shared/paginate' %>
   </div>
+</div>
   <hr>
 </div>
 

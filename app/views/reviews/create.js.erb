@@ -1,5 +1,9 @@
 $("#newReview_<% @review.id %>").modal('hide');
+$(".review_rating").val('');
+$(".review_comment").val('');
 $(".reviews").fadeOut(500, function(){
     $(this).remove();
-    $("#reviews_list").prepend('<%= j render 'books/reviews_list', book: @book %>');
+    $("#reviews_list").prepend($('<%= j render 'books/reviews_list', book: @book, review: @review %>').fadeIn('slow'));
+    $('.paginate-reviews-remove').remove();
+    $('.paginate-reviews').append('<%= j render 'shared/paginate_reviews', book: @book, review: @review %>');
 });
