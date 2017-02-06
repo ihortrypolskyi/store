@@ -1,2 +1,2 @@
-$('.index_books').html('<%= j render @books %>');
-$('.paginate').html('<%= j render 'shared/paginate' %>');
+$('.books-index').html($('<%= j render @books %>').fadeIn('slow'));
+$('.paginate-categories_show').html('<%= j render 'shared/paginate_books' %>');

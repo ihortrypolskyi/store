@@ -1,9 +1,6 @@
 $("#newReview_<% @review.id %>").modal('hide');
 $(".review_rating").val('');
 $(".review_comment").val('');
-$(".reviews").fadeOut(500, function(){
-    $(this).remove();
-    $("#reviews_list").prepend($('<%= j render 'books/reviews_list', book: @book, review: @review %>').fadeIn('slow'));
-    $('.paginate-reviews-remove').remove();
-    $('.paginate-reviews').append('<%= j render 'shared/paginate_reviews', book: @book, review: @review %>');
-});
+$('.reviews-list').prepend($('<%= j render @review %>').fadeIn(200).fadeOut(150).fadeIn(100)
+    .fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100));
+

@@ -8,10 +8,10 @@ class Order < ApplicationRecord
 
   # validates_presence_of :customer_first_name, :customer_last_name, :customer_phone_number, :customer_email,
   #                       :customer_house, :customer_city, :customer_postal_code
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  # validates :customer_email, length: { in: 3..30 }, format: { with: VALID_EMAIL_REGEX }
+  # before_save { customer_email.downcase! }
   # TODO
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, length: { in: 3..30 }, format: { with: VALID_EMAIL_REGEX }
-  before_save { email.downcase! }
 
   def subtotal
     order_books.collect { |ob| ob.valid? ? (ob.quantity * ob.unit_price) : 0 }.sum

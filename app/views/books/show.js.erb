@@ -1,1 +1,2 @@
-$('.index-reviews').html('<%= j render 'reviews_list' %>');
+$('.reviews-list').html($('<%= j render @reviews %>').fadeIn('slow'));
+$('.paginate-reviews').html('<%= j render 'shared/paginate_reviews' %>');

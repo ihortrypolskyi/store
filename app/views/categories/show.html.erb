@@ -1,9 +1,9 @@
 <div class="categories-show">
   <h2 class="text-center"><%= @category.name %></h2>
-  <div class="row index_books">
+  <div class="row books-index">
     <p><%= render @books %></p>
   </div>
-  <div class="row text-center paginate">
-    <%= render 'shared/paginate' %>
+  <div class="row text-center paginate-categories_show">
+    <%= render 'shared/paginate_books' %>
   </div>
 </div>

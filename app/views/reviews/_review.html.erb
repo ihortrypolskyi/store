@@ -1,0 +1,24 @@
+<hr>
+<div class="star-rating" data-score= <%= review.rating %> ></div>
+<% if review.review_status_id == 1 && review.comment? %>
+    <div>
+      <em>This comment's passing moderation</em>
+      <br>
+    </div>
+<% else %>
+    <div>
+      <strong><em><%= review.comment %></em></strong>
+    </div>
+<% end %>
+<div class="pull-left user-contacts"><%= review.created_at.strftime('%d.%m.%Y at %H:%M')%></div>
+<div class="pull-right user-contacts"><%= review.user.first_name %> <%= review.user.last_name %></div>
+
+<script>
+    $('.star-rating').raty({
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        },
+        path: '/assets/'
+    });
+</script>
