@@ -62,7 +62,8 @@ class BooksController < ApplicationController
       if params[:search].present?
         @books = Book.search(params[:search], page: params[:page], per_page: 8, fields: [:title, :description], match: :word_start)
       else
-        @books = @books = Book.paginate(page: params[:page], per_page: 4)
+        @books = Book.paginate(page: params[:page], per_page: 4)
+
       end
 
     @categories = Category.order(:name)
@@ -70,6 +71,7 @@ class BooksController < ApplicationController
     @order_book = current_order.order_books.new
     @carousel_first_slide = Book.order("created_at").last(4)
     @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @user = User.new
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)

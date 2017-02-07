@@ -79,7 +79,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title text-center no-reviews" id="myModalLabel">REVIEW CREATION. <br>PLEASE FILL IN THE FORM BELOW:</h4>
+                            <h4 class="modal-title text-center no-reviews" id="myModalLabel">TO CREATE REVIEW <br>PLEASE FILL IN THE FORM BELOW:</h4>
                           </div>
                           <div class="modal-body">
                             <%= render 'reviews/form', book: @book, review: @review %>
@@ -89,7 +89,7 @@
                     </div>
                 <% else %>
                     <div class="list-group-item list-group text-center">
-                      <h4>Please login to leave a review</h4>
+                      <h4>Please log in to leave a review</h4>
                     </div>
                 <%	end %>
                 <div class="reviews-list">
