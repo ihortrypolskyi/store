@@ -14,12 +14,12 @@ class SessionsController < ApplicationController
     @authors = Author.order(:first_name)
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to root_url
-      flash[:notice] = 'Welcome'
+      redirect_to :back
+      flash[:notice] = 'Welcome!'
     else
-      render :new
+      redirect_to :back
+      flash[:alert] = 'Please fill in the form properly.'
     end
-
   end
 
   def destroy

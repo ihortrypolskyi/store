@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:new, :show, :edit, :update, :destroy]
 
   # before_action :authenticate_with_http_digest
   # # ???
@@ -33,13 +33,13 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
-
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
       session[:user_id] = @user.id
+      redirect_to :back
+      flash[:notice] = 'You have successfully signed up.'
     else
-      render :new
+      redirect_to :back
+      flash[:alert] = 'Please fill in the form properly.'
     end
   end
 

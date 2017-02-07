@@ -17,3 +17,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 end
+
+#original_exception is deprecated. Use #cause instead.
+# TODO

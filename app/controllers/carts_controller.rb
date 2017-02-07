@@ -7,6 +7,7 @@ class CartsController < ApplicationController
       # @order = Order.find(session[:order_id])
     @carousel_first_slide = Book.order("created_at").last(4)
     @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @user = User.new
 
   end
 end

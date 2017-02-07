@@ -29,6 +29,7 @@
                 <div class="alert alert-danger"><%= flash[:alert] %></div>
             <% end %>
             <%= yield %>
+
             <div class="row">
               <h4 class="text-center">NEWCOMERS:</h4>
               <p><%= render 'books/carousel' %></p>
@@ -39,6 +40,8 @@
           </div>
         </div>
       </div>
+      <%= render 'shared/login_modal' %>
+      <%= render 'shared/signup_modal' %>
     </section>
     <footer>
       <%= render partial: 'shared/footer' %>

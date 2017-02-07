@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @authors = Author.order(:first_name)
     @order_book = @order.order_books.new
     @order_books = @order.order_books
+
   end
 
   def create
@@ -18,6 +19,7 @@ class OrdersController < ApplicationController
     @authors = Author.order(:first_name)
     @carousel_first_slide = Book.order("created_at").last(4)
     @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @user = User.new
   end
 
   def update
