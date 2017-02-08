@@ -44,3 +44,5 @@ bower.json
 .byebug_history
 /.idea/*
 /config/environment_variables.yml
+/config/database.production.yml
+/config/secrets.production.yml
