@@ -17,8 +17,12 @@
           <div class="item active">
             <% @carousel_first_slide.each do |book| %>
               <div class="col-md-3">
-                <%= link_to book do %>
-                  <%= image_tag book.image.url(:small) %>
+                <% if book.image? %>
+                  <%= link_to book do %>
+                    <%= image_tag book.image.url(:small) %>
+                  <% end %>
+                <% else %>
+                  <img src="http://placehold.it/150x225" alt="...">
                 <% end %>
               </div>
             <% end %>

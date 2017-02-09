@@ -2,7 +2,7 @@
   <span class="thumbnail">
       <% if book.image? %>
           <%= link_to book do %>
-              <%= image_tag book.image.url(:medium) if book.image? %>
+              <%= image_tag book.image.url(:medium) %>
           <% end%>
       <% else %>
           <img src="http://placehold.it/180x270" alt="...">

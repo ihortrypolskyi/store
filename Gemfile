@@ -39,9 +39,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts_as_list'
 gem 'rails_admin', '~> 1.0'
 gem 'searchkick', '2.0.2'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 0.9'
 gem 'mini_magick', '4.6.0'
 gem 'will_paginate', '3.1.0'
+gem 'carrierwave-dropbox'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
