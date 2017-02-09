@@ -19,11 +19,11 @@
       <div class="list-group-item list-group">
         <h4 class="text-center">Authors   <span class="badge"><%= @authors.count %></span></h4>
       </div>
-      <% @authors.each do |author| %>
+      <% @authors.each do |a| %>
           <ul class="list-group">
-            <%= link_to author_path(author), class: 'list-group-item' do %>
-                <%= author.first_name %>
-                <%= author.last_name %><span class="badge"><%= author.books.count %></span>
+            <%= link_to author_path(a), class: 'list-group-item' do %>
+                <%= a.first_name %>
+                <%= a.last_name %><span class="badge"><%= a.books.count %></span>
             <% end %>
           </ul>
       <% end %>

@@ -19,12 +19,12 @@
           <div class="no-reviews">0 reviews</div>
         <% end %>
 
-      <% book.authors.each do |author| %>
-        <em><%= author.first_name %>
-            <%= author.last_name %></em>
+      <% book.authors.each do |a| %>
+        <em><%= a.first_name %>
+            <%= a.last_name %></em>
       <% end %>
-      <% book.categories.each do |category| %>
-          <div> <%= link_to category.name, category_path(category) %></div>
+      <% book.categories.each do |c| %>
+          <div> <%= link_to c.name, category_path(c) %></div>
       <% end %>
           <div>
             <% if book.in_stock? %>
