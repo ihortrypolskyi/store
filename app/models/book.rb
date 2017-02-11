@@ -1,6 +1,5 @@
 class Book < ApplicationRecord
   attr_accessor :avg_review
-  searchkick word_start: [:title, :description]
 
   has_many :book_categories
   has_many :categories, through: :book_categories
@@ -19,11 +18,13 @@ class Book < ApplicationRecord
 
   mount_uploader :image, BookUploader
 
-    # def self.by_category_and_author(category = nil, author = nil)
-    #   return where(category: category, author: author) if category && author
-    #   return where(category: category) if category
-    #   return where(author: author) if author
-    #   all
-    # end
+  def self.search(search)
+    if search
+      search_key = "%#{search}%"
+      where("title LIKE ? OR description LIKE ?", search_key, search_key)
+    else
+      all
+    end
+  end
 end
 

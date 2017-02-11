@@ -3,14 +3,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav">
-      <%= form_tag search_books_path, method: :get, class: 'navbar-form navbar-left', role: 'search' do %>
-      <p>
-       <%= text_field_tag :search, params[:search], class: 'form-control', placeholder:'find a book...' %>
-       <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
-      </p>
-         <% end %>
+      <%= form_tag books_path, method: :get, class: 'navbar-form navbar-left', role: 'search', remote: true do %>
+        <p>
+         <%= text_field_tag :search, params[:search], class: 'form-control', id: 'search', placeholder:'find a book...' %>
+         <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
+        </p>
+       <% end %>
       </ul>
-      <ul class="nav navbar-nav nav-center">
+        <ul class="nav navbar-nav nav-center">
         <li class="phone">0-800-937-99-92</li>
       </ul>
       <ul class="nav navbar-nav">

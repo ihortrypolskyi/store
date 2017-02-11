@@ -16,18 +16,12 @@ Rails.application.routes.draw do
 
   get 'about/index'
 
-  # get 'search', to: 'search#search'
-
   resources :books do
     resources :reviews, except: [:show, :index]
     collection do
       get 'search'
       # put :approve
     end
-
-    # member do
-    #   post 'add_to_cart'
-    # end
   end
   resources :categories
   resources :authors
