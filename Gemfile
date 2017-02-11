@@ -34,7 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'th or', '0.19.1'
+gem 'thor', '0.19.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts_as_list'
 gem 'rails_admin', '~> 1.0'
