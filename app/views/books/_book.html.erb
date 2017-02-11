@@ -5,7 +5,9 @@
               <%= image_tag book.image.url(:medium) %>
           <% end%>
       <% else %>
-          <img src="http://placehold.it/180x270" alt="...">
+        <%= link_to book do %>
+              <img src="http://placehold.it/180x270" alt="...">
+        <% end%>
       <% end %>
         <br>
         <div>
