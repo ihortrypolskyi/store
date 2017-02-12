@@ -16,8 +16,9 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
-    @carousel_first_slide = Book.order("created_at").last(4)
-    @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @books = Book.all
+    @carousel_first_slide = @books.order('created_at').last(4)
+    @carousel_second_slide = @books.order('created_at').last(8).first(4)
   end
 
   # GET /reviews/1/edit
@@ -30,13 +31,14 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.book_id = @book.id
     @reviews = Review.where(book_id: @book.id).paginate(page: params[:page], per_page: 3).order('created_at DESC')
-    @carousel_first_slide = Book.order("created_at").last(4)
-    @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @books = Book.all
+    @carousel_first_slide = @books.order('created_at').last(4)
+    @carousel_second_slide = @books.order('created_at').last(8).first(4)
 
     respond_to do |format|
       if @review.save
         format.js
-        format.html { redirect_to @book, notice: "Thank you! Your review will appear on the site after moderation." }
+        format.html { redirect_to @book, notice: 'Thank you! Your review will appear on the site after moderation.' }
       else
         render :new
       end

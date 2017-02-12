@@ -1,22 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:new, :show, :edit, :update, :destroy]
 
-  # before_action :authenticate_with_http_digest
-  # # ???
-
-  # GET /users
-  def index
-    @users = User.all
-  end
-
   # GET /users/1
-  def show
-    @books = Book.order(:title)
-    @categories = Category.order(:name)
-    @authors = Author.order(:first_name)
-  end
-
-  # GET /users/new
   def new
     @user = User.new
     @books = Book.order(:title)

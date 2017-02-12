@@ -2,10 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$( document ).ready ->
-  $( '.star-rating' ).raty
-    path: '/assets/',
-    readOnly: true,
-    score: ->
-      $( this ).attr( 'data-score' )
-  return
+#$( document ).ready ->
+#  $( '.star-rating' ).raty
+#    path: '/assets/',
+#    readOnly: true,
+#    score: ->
+#      $( this ).attr( 'data-score' )
+#  return
+#
+#  TODO

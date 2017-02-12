@@ -7,8 +7,9 @@ class BooksController < ApplicationController
     @reviews = Review.where(book_id: @book.id).paginate(page: params[:page], per_page: 3).order('created_at DESC')
     @review = Review.new
     @order_book = current_order.order_books.new
-    @carousel_first_slide = Book.order("created_at").last(4)
-    @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @books = Book.all
+    @carousel_first_slide = @books.order('created_at').last(4)
+    @carousel_second_slide = @books.order('created_at').last(8).first(4)
     @user = User.new
 
       unless @reviews.present?

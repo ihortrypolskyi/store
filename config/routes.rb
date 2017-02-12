@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orders
   resource :cart, only: [:show]
-  # TODO
   resources :order_books, only: [:create, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'
@@ -18,10 +17,10 @@ Rails.application.routes.draw do
 
   resources :books do
     resources :reviews, except: [:show, :index]
-    collection do
-      get 'search'
-      # put :approve
-    end
+    # collection do
+    #   get 'search'
+    #   # put :approve
+    # end
   end
   resources :categories
   resources :authors

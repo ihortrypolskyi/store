@@ -69,24 +69,7 @@
           <div class="col-md-4 col-sm-4 col-xs-4">
                <div class="well">
                 <% if current_user %>
-                    <div class="text-center">
-                      <button class="btn btn-success" data-toggle="modal" data-target="#newReview_<% @review.id %>">
-                        <%= 'Leave your review here' %>
-                      </button>
-                    </div>
-                    <div class="modal fade" id="newReview_<% @review.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title text-center no-reviews" id="myModalLabel">TO CREATE REVIEW <br>PLEASE FILL IN THE FORM BELOW:</h4>
-                          </div>
-                          <div class="modal-body">
-                            <%= render 'reviews/form', book: @book, review: @review %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                     <%= render 'shared/review_modal' %>
                 <% else %>
                     <div class="list-group-item list-group text-center">
                       <h4>Please log in to leave a review</h4>
