@@ -4,7 +4,7 @@
 
 $( document ).on 'turbolinks:load', ->
   $( '.star-rating' ).raty
-    path: '/assets/',
+    path: '/',
     readOnly: true,
     score: ->
       $( this ).attr( 'data-score' )

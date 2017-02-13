@@ -30,6 +30,7 @@
             <div class="col-md-5 col-sm-5 col-xs-5">
               <%= render 'books/review_count' %>
 
+
               <% if @book.in_stock? %>
                   <div>
                     <span class= "old-price-show"><%= number_to_currency(@book.old_price, unit: '', format: '%n %u', precision: 0) %></span>
