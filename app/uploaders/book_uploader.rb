@@ -8,7 +8,7 @@ class BookUploader < CarrierWave::Uploader::Base
   # storage :file
   # storage :fog
   if Rails.env.production?
-    storage :fog
+    storage :aws
   else
     storage :file
   end
