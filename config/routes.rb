@@ -17,10 +17,6 @@ Rails.application.routes.draw do
 
   resources :books do
     resources :reviews, except: [:show, :index]
-    # collection do
-    #   get 'search'
-    #   # put :approve
-    # end
   end
   resources :categories
   resources :authors

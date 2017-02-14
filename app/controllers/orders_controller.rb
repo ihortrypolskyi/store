@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
     @authors = Author.order(:first_name)
     @order_book = @order.order_books.new
     @order_books = @order.order_books
-
   end
 
   def create
@@ -33,10 +32,7 @@ class OrdersController < ApplicationController
       end
   end
 
-  # def show
-  # end
-
-  private
+ private
 
   def set_order
     @order = Order.find(params[:id])

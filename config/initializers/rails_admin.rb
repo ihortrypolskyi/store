@@ -7,9 +7,6 @@ RailsAdmin.config do |config|
   end
 
   config.model Book do
-    # edit do
-    # end
-
   end
 
 

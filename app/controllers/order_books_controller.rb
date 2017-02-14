@@ -10,7 +10,6 @@ class OrderBooksController < ApplicationController
       else
         format.html { redirect_to :back }
       end
-      # TODO   if @order_book.save
     end
   end
 
@@ -25,7 +24,6 @@ class OrderBooksController < ApplicationController
       else
         format.html { redirect_to :back }
       end
-    # TODO   if @order_book.save
     end
   end
 

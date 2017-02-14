@@ -15,7 +15,6 @@ class Book < ApplicationRecord
   validates :pages, presence: true
   validates :language, presence: true
 
-
   mount_uploader :image, BookUploader
 
   def self.search(search)

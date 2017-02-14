@@ -1,20 +1,5 @@
 class CategoriesController < ApplicationController
-  def new
-  end
-
-  def create
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-
-  def show
+ def show
     @categories = Category.order(:name)
     @category = Category.find(params[:id])
     @books = @category.books.paginate(page: params[:page], per_page: 4).order('in_stock DESC, title')
@@ -34,10 +19,6 @@ class CategoriesController < ApplicationController
         singlebook.avg_review = @reviews.average(:rating).round(2)
       end
     end
-  end
-
-  def index
-    @categories = Category.order(:name)
   end
 
   private
