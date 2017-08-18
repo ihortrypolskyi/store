@@ -1,8 +1,8 @@
-dashboard  http://localhost:3000/admin  
+on heroku: https://dry-plains-25802.herokuapp.com
+
+dashboard:  http://localhost:3000/admin
 user: storeadmin
 pass: store
-
-http://46.101.200.71/
 
 # README
 
