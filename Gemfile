@@ -42,6 +42,7 @@ gem 'mini_magick', '4.6.0'
 gem 'will_paginate', '3.1.0'
 gem 'carrierwave-dropbox'
 gem 'fog'
+gem 'seed_dump'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

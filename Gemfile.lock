@@ -351,6 +351,9 @@ GEM
       activemodel (>= 4.1)
       elasticsearch (>= 1)
       hashie
+    seed_dump (3.2.4)
+      activerecord (>= 4)
+      activesupport (>= 4)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -422,6 +425,7 @@ DEPENDENCIES
   rails_admin (~> 1.0)
   sass-rails (~> 5.0)
   searchkick (= 2.0.2)
+  seed_dump
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
