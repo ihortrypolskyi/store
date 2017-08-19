@@ -55,10 +55,10 @@ Review.create!([
   {rating: 1, comment: "", user_id: 2, book_id: 5},
   {rating: 1, comment: "", user_id: 2, book_id: 5}
 ])
-ReviewStatus.create!([
-  {status: "Draft"},
-  {status: "Approved"}
-])
+# ReviewStatus.create!([
+#   {status: "Draft"},
+#   {status: "Approved"}
+# ])
 User.create!([
   {first_name: "Slava", last_name: "Vakarchuck", email: "slava@gmail.com", password_digest: "$2a$10$VXNK/YKTxkZNBOjwgAOHxufyCAcUarK.iZXojEkk.RG5tn316nunS"},
   {first_name: "Mikle", last_name: "Jordan", email: "mikle@gmail.com", password_digest: "$2a$10$nH1LUENl/S./nMTXemJtXuWAFXl26w/CsvIKq65/XqXh3TJouXfaC"},
