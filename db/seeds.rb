@@ -50,7 +50,7 @@ Review.create!([
   {rating: 2, comment: "", user_id: 2, book_id: 4, review_status_id: 1},
   {rating: 1, comment: "", user_id: 2, book_id: 4, review_status_id: 1},
   {rating: 2, comment: "", user_id: 2, book_id: 4, review_status_id: 1},
-  {rating: 1, comment: "", user_id: 2, book_id: 5, review_status_id: 1},
+  {rating: 1, comment: "", useder_id: 2, book_id: 5, review_status_id: 1},
   {rating: 2, comment: "", user_id: 2, book_id: 5, review_status_id: 1},
   {rating: 1, comment: "", user_id: 2, book_id: 5, review_status_id: 1},
   {rating: 1, comment: "", user_id: 2, book_id: 5, review_status_id: 1},
@@ -82,10 +82,7 @@ Review.create!([
   {rating: 1, comment: "", user_id: 2, book_id: 5, review_status_id: 1},
   {rating: 2, comment: "", user_id: 2, book_id: 5, review_status_id: 1}
 ])
-ReviewStatus.create!([
-  {status: "Draft"},
-  {status: "Approved"}
-])
+
 User.create!([
   {first_name: "Slava", last_name: "Vakarchuck", email: "slava@gmail.com", password_digest: "$2a$10$VXNK/YKTxkZNBOjwgAOHxufyCAcUarK.iZXojEkk.RG5tn316nunS"},
   {first_name: "Mikle", last_name: "Jordan", email: "mikle@gmail.com", password_digest: "$2a$10$nH1LUENl/S./nMTXemJtXuWAFXl26w/CsvIKq65/XqXh3TJouXfaC"},
