@@ -116,6 +116,11 @@ footer{
   font-size: 33px;
 }
 
+#mobile {
+  color: #ec971f!important;
+  font-size: 15px;
+}
+
 .glyphicon.glyphicon-trash {
   margin-top: 15px;
   color: #449d44!important;
@@ -179,4 +184,21 @@ footer{
 
 .success {
   background-color: #ec971f;
+}
+
+.carousel-books {
+  padding-left: 20px;
+  margin-bottom: 0px;
+}
+
+@media (min-width: 200px) {
+  .group2 {
+    text-align: right;
+  }
+}
+
+#bs-example-navbar-collapse-1 {
+  background-color: #f8f8f8;
+  opacity: 1;
+  max-height: 540px;
 }

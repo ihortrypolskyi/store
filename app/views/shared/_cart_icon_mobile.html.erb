@@ -1,0 +1,2 @@
+<%= link_to "#{current_order.order_books.collect { |ob| ob.quantity }.sum}",
+            cart_path, class:"glyphicon glyphicon-shopping-cart", id: "mobile" %>

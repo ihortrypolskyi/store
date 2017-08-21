@@ -15,13 +15,10 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'shared/navbar' %>
-    </header>
-    <section>
+    <%= render partial: 'shared/navbar' %>
       <div class="container">
         <div class="row">
-          <div class="col-md-9 col-sm-9 col-xs-9">
+          <div class="col-md-9 col-sm-12 col-xs-12">
             <% if flash[:notice] %>
               <div class="alert alert-success"><%= flash[:notice] %></div>
             <% end %>
@@ -29,22 +26,22 @@
                 <div class="alert alert-danger"><%= flash[:alert] %></div>
             <% end %>
             <%= yield %>
+          </div>
 
-            <div class="row">
-              <h4 class="text-center">NEWCOMERS:</h4>
-              <p><%= render 'books/carousel' %></p>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+           <%= render 'shared/sidebar' %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <h4 class="text-center">NEWCOMERS:</h4>
+                <p><%= render 'books/carousel' %></p>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-3">
-            <%= render 'shared/sidebar' %>
-          </div>
+          <div>
         </div>
       </div>
       <%= render 'shared/login_modal' %>
       <%= render 'shared/signup_modal' %>
-    </section>
-    <footer>
-      <%= render partial: 'shared/footer' %>
-    </footer>
+      <%= render 'shared/footer' %>
   </body>
 </html>

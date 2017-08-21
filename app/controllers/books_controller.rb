@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+  class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
@@ -8,8 +8,8 @@ class BooksController < ApplicationController
     @review = Review.new
     @order_book = current_order.order_books.new
     @books = Book.all
-    @carousel_first_slide = @books.order('created_at').last(4)
-    @carousel_second_slide = @books.order('created_at').last(8).first(4)
+    @carousel_first_slide = @books.order('created_at').last(6)
+    @carousel_second_slide = @books.order('created_at').last(12).first(6)
     @user = User.new
 
       unless @reviews.present?
@@ -25,8 +25,8 @@ class BooksController < ApplicationController
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
-    @carousel_first_slide = Book.order("created_at").last(4)
-    @carousel_second_slide = Book.order("created_at").last(8).first(4)
+    @carousel_first_slide = Book.order("created_at").last(6)
+    @carousel_second_slide = Book.order("created_at").last(12).first(6)
     @user = User.new
 
     for singlebook in @books

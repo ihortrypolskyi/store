@@ -1,6 +1,6 @@
-on heroku: https://dry-plains-25802.herokuapp.com
+heroku: https://boooky.herokuapp.com
 
-dashboard:  http://localhost:3000/admin
+dashboard:  https://boooky.herokuapp.com/admin
 user: storeadmin
 pass: store
 
