@@ -1,45 +1,43 @@
 
-    <div class="row">
-      <div>
-        <div id="Carousel" class="carousel slide">
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <% @carousel_first_slide.each do |book| %>
-                <div class="col-md-2 col-sm-6 col-xs-6 carousel-books">
-                  <% if book.image? %>
-                    <%= link_to book do %>
-                      <%= image_tag book.image.url(:small) %>
-                    <% end %>
-                  <% else %>
-                     <%= link_to book do %>
-                       <img src="http://placehold.it/150x225" alt="...">
-                     <% end %>
+<div class="row">
+  <div id="Carousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <% @carousel_first_slide.each do |book| %>
+          <div class="col-md-2 col-sm-6 col-xs-6 carousel-books">
+            <% if book.image? %>
+              <%= link_to book do %>
+                <%= image_tag book.image.url(:small) %>
+              <% end %>
+            <% else %>
+               <%= link_to book do %>
+                 <img src="http://placehold.it/150x225" alt="...">
+               <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div><!--.item-->
+
+      <div class="item">
+        <% @carousel_second_slide.each do |book| %>
+            <div class="col-md-2 col-sm-6 col-xs-6 carousel-books">
+              <% if book.image? %>
+                  <%= link_to book do %>
+                    <%= image_tag book.image.url(:small) %>
                   <% end %>
-                </div>
+              <% else %>
+                  <%= link_to book do %>
+                    <img src="http://placehold.it/150x225" alt="...">
+                  <% end %>
               <% end %>
-            </div><!--.item-->
+            </div>
+        <% end %>
+      </div><!--.item-->
+    </div><!--.carousel-inner-->
 
-            <div class="item">
-              <% @carousel_second_slide.each do |book| %>
-                  <div class="col-md-2 col-sm-6 col-xs-6 carousel-books">
-                    <% if book.image? %>
-                        <%= link_to book do %>
-                          <%= image_tag book.image.url(:small) %>
-                        <% end %>
-                    <% else %>
-                        <%= link_to book do %>
-                          <img src="http://placehold.it/150x225" alt="...">
-                        <% end %>
-                    <% end %>
-                  </div>
-              <% end %>
-            </div><!--.item-->
-          </div><!--.carousel-inner-->
-
-          <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
-          <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
-        </div><!--.Carousel-->
-      </div>
-    </div>
+    <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+    <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+  </div><!--.Carousel-->
+</div>
 

@@ -1,4 +1,13 @@
-$('.books-index').html($('<%= j render @books %>').fadeIn('slow'));
-$('.paginate-books-index').html('<%= j render 'shared/paginate_books' %>');
+<% if @books.blank? %>
+  $('.page').html($('<%= j render 'shared/search' %>').fadeIn('slow'));
+<% else %>
+  $('.books-index').html($('<%= j render @books %>').fadeIn('slow'));
+  $('.paginate-books-index').html('<%= j render 'shared/paginate_books' %>');
+<% end %>
 
 $("#search").val('');
+
+
+
+
+

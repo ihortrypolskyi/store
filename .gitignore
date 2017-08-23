@@ -46,5 +46,3 @@ bower.json
 /config/environment_variables.yml
 /config/database.production.yml
 /config/secrets.production.yml
-
-

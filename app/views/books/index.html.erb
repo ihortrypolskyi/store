@@ -1,11 +1,12 @@
-<div class="row">
-  <p><%= render 'slider' %></p>
+<div class="page">
+  <div class="row slider">
+    <p><%= render 'slider' %></p>
+  </div>
+  <div class="row books-index">
+    <p><%= render @books, book: @book, order_book: @order_book %></p>
+  </div>
+  <div class="row text-center paginate-books-index">
+    <%= render 'shared/paginate_books' %>
+  </div>
+  <hr>
 </div>
-<div class="row books-index">
-  <p><%= render @books, book: @book, order_book: @order_book %></p>
-</div>
-<div class="row text-center paginate-books-index">
-  <%= render 'shared/paginate_books' %>
-</div>
-<hr>
-
