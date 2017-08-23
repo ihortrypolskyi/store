@@ -19,12 +19,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        <%= form_tag books_path, method: :get, class: 'navbar-form navbar-left', role: 'search', remote: true do %>
-        <p>
-         <%= text_field_tag :search, params[:search], class: 'form-control', class: 'search', id: 'search', placeholder:'find a book...' %>
-         <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
-        </p>
-       <% end %>
+        <% if @show_search %>
+          <span class='show_search'>
+            <%= form_tag books_path, method: :get, class: 'navbar-form navbar-left', role: 'search', remote: true do %>
+            <p>
+             <%= text_field_tag :search, params[:search], class: 'form-control', class: 'search', id: 'search', placeholder:'find a book...' %>
+             <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
+            </p>
+            <% end %>
+          </span>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>

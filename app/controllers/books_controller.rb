@@ -1,15 +1,16 @@
 class BooksController < ApplicationController
 
   def show
+    @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 4).order('in_stock DESC, title').includes(:reviews)
     @book = Book.find(params[:id])
     @categories = Category.order(:name)
     @authors = Author.order(:first_name)
     @reviews = Review.where(book_id: @book.id).paginate(page: params[:page], per_page: 3).order('created_at DESC')
     @review = Review.new
     @order_book = current_order.order_books.new
-    @books = Book.all
-    @carousel_first_slide = @books.order('created_at').last(6)
-    @carousel_second_slide = @books.order('created_at').last(12).first(6)
+
+    @carousel_first_slide = Book.order("created_at").last(6)
+    @carousel_second_slide = Book.order("created_at").last(12).first(6)
     @user = User.new
 
       unless @reviews.present?
@@ -28,6 +29,7 @@ class BooksController < ApplicationController
     @carousel_first_slide = Book.order("created_at").last(6)
     @carousel_second_slide = Book.order("created_at").last(12).first(6)
     @user = User.new
+    @show_search = true
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)
