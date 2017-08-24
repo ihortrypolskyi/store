@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Welcome!'
     else
       redirect_to :back
-      flash[:alert] = 'Please fill in the form properly.'
+      flash[:alert] = 'User with specified email and password does not exist.'
     end
   end
 
