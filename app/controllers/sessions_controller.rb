@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to :back
-      flash[:notice] = 'Welcome!'
+      flash[:notice] = "Welcome on board, #{@user.first_name} #{@user.last_name}!"
     else
       redirect_to :back
       flash[:alert] = 'User with specified email and password does not exist.'
