@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :carousel, :side_bar
 
   def new
     @order = Order.new
-    @categories = Category.order(:name)
-    @authors = Author.order(:first_name)
     @order_book = @order.order_books.new
     @order_books = @order.order_books
   end
@@ -14,10 +13,6 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @categories = Category.order(:name)
-    @authors = Author.order(:first_name)
-    @carousel_first_slide = Book.order("created_at").last(4)
-    @carousel_second_slide = Book.order("created_at").last(8).first(4)
     @user = User.new
   end
 

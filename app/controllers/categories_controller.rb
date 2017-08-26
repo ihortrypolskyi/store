@@ -1,13 +1,11 @@
 class CategoriesController < ApplicationController
- def show
-    @categories = Category.order(:name)
+  before_action :carousel, :side_bar
+
+  def show
     @category = Category.find(params[:id])
     @books = @category.books.paginate(page: params[:page], per_page: 4).order('in_stock DESC, title')
     @book = Book.find(params[:id])
-    @authors = Author.order(:first_name)
     @order_book = current_order.order_books.new
-    @carousel_first_slide = Book.order("created_at").last(4)
-    @carousel_second_slide = Book.order("created_at").last(8).first(4)
     @user = User.new
 
     for singlebook in @books

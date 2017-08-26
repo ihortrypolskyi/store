@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_book
+  before_action :carousel
   before_action :review_owner, only: [:destroy, :edit, :update]
 
 
@@ -17,8 +18,6 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @books = Book.all
-    @carousel_first_slide = @books.order('created_at').last(4)
-    @carousel_second_slide = @books.order('created_at').last(8).first(4)
   end
 
   # GET /reviews/1/edit
@@ -32,8 +31,6 @@ class ReviewsController < ApplicationController
     @review.book_id = @book.id
     @reviews = Review.where(book_id: @book.id).paginate(page: params[:page], per_page: 3).order('created_at DESC')
     @books = Book.all
-    @carousel_first_slide = @books.order('created_at').last(4)
-    @carousel_second_slide = @books.order('created_at').last(8).first(4)
 
     respond_to do |format|
       if @review.save
