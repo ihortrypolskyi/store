@@ -12,7 +12,8 @@
       <tr>
         <th>
           <% if order_book.book.image? %>
-              <%= image_tag order_book.book.image.url(:small), class:'style_image' if order_book.book.image? %>
+              <img src="http://placehold.it/180x270" alt="...">
+              <%#= image_tag order_book.book.image.url(:small), class:'style_image' if order_book.book.image? %>
           <% else %>
               <img src="http://placehold.it/180x270" alt="...">
           <% end %>

@@ -51,7 +51,8 @@
     </div>
         <div class="col-md-3 col-sm-3 col-xs-3">
           <% if @book.image? %>
-              <%= image_tag @book.image.url(:small) %>
+              <img src="http://placehold.it/150x250" alt="...">
+              <%#= image_tag @book.image.url(:small) %>
           <% else %>
               <img src="http://placehold.it/150x250" alt="...">
           <% end %>
