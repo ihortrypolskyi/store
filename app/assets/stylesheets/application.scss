@@ -25,6 +25,10 @@ footer{
   height: 30px;
 }
 
+#sidebar {
+  margin-top: 10px;
+}
+
 #books-show h2{
   padding: 10px;
   background: #f4f4f4;
@@ -211,4 +215,8 @@ footer{
  margin-top: 100px;
  text-align: center;
  text-transform: uppercase;
+}
+
+.carousel-control {
+  width: 90px;
 }

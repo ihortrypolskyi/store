@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :carousel, :side_bar
 
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
   def update
       if @order.update(order_params)
         session[:order_id] = nil
-        redirect_to :root, notice: 'Thank you for order! Our manager will contact you within 1 hour.'
+        redirect_to :root, notice: 'Thank you for order! Information has been sent to your email address. Our manager will contact you within 1 hour.'
         OrderMailer.new_order(@order).deliver_now
         OrderMailer.new_order_admin(@order).deliver_now
       else

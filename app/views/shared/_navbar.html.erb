@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-left">
         <% if @show_search %>
           <span class='show_search'>
-            <%= form_tag books_path, method: :get, class: 'navbar-form navbar-left', role: 'search', remote: true do %>
+            <%= form_tag books_path, method: :get, class: 'navbar-form', role: 'search', remote: true do %>
             <p>
              <%= text_field_tag :search, params[:search], class: 'form-control', class: 'search', id: 'search', placeholder:'find a book...' %>
              <%= submit_tag 'Search', name: nil, class: 'btn btn-default' %>
