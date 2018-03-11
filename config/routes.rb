@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root 'books#index'
 
   get 'about/index'
+  get 'about/privacy'
 
   resources :books do
     resources :reviews, except: [:show, :index]
