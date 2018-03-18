@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :carousel, :side_bar
+  before_action :carousel, :side_bar, :set_user
 
   def show
     @author = Author.find(params[:id])
@@ -9,7 +9,6 @@ class AuthorsController < ApplicationController
     @category = Category.find(params[:id])
     @order_book = current_order.order_books.new
 
-    @user = User.new
 
     for singlebook in @books
       @reviews = Review.where(book_id: singlebook.id)

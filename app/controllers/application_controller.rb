@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_user
+    @user = User.new
+  end
+
   private
 
   def current_user

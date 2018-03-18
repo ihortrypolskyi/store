@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:new, :show, :edit, :update, :destroy]
+  before_action :find_user, only: [:new]
 
   def new
     @user = User.new
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
+    def find_user
       @user = User.find(params[:id])
     end
 
